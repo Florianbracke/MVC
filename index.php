@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 require 'Model/User.php';
 //include all your controllers here
 require 'Controller/HomepageController.php';
-require 'Controller/InfoController.php';
+require 'Controller/InfoController.php'; 
 
 //you could write a simple IF here based on some $_GET or $_POST vars, to choose your controller
 //this file should never be more than 20 lines of code!
