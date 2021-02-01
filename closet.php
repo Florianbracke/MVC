@@ -1,7 +1,7 @@
 <?php 
 
         try {
-            $database = new PDO("mysql:host=localhost;dbname=my_digital_closet", 'root', 'root');
+            $database = new PDO("mysql:host=localhost;port=3307;dbname=closet", 'root', 'root');
             // set the PDO error mode to exception
             $database->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
             $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -19,12 +19,15 @@ $items =  $database->query("SELECT * FROM closet");
 
     <p><a href="index.php">Back to homepage</a></p>
 
-
+<img src="" alt="">
     <ul>
         <?php foreach ($items as $item) : ?>
-        <li><?= $item['type'] ?></li>
+        <li><img src="images/<?= $item['image']?>" style="height:200px;"><br>
+        <?= $item['type'] ?> - <?= $item['weather'] ?> - <?= $item['colour'] ?> - <?= $item['ocassion'] ?> - <?= $item['time'] ?></li>
         <?php endforeach; ?>
     </ul>
+
+    
 
 </section>
 <?php require 'view/includes/footer.php'?>
