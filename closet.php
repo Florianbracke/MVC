@@ -1,4 +1,12 @@
 <?php 
+declare(strict_types=1);
+
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
+session_start();
+
 
         try {
             $database = new PDO("mysql:host=localhost;dbname=my_digital_closet", 'root', 'root');
@@ -11,17 +19,64 @@
 
 $items =  $database->query("SELECT * FROM closet");
 
-?>
+if(!empty($_POST['add_to_outfit'])) {
+    if (isset($_SESSION['outfit'])) {
+        $item_array_id = array_column($_SESSION['outfit'], 'item_id');  
+
+        if (!in_array($_POST['item'], $item_array_id)) {
+            $count = count($_SESSION['outfit']);
+            $item_array = array(
+                'item_id' => $_POST['item_id'],
+                'item_type' => $_POST['item_type'],
+                'item_weather' => $_POST['item_weather'],
+                'item_image' => $_POST['item_image'],
+                'item_ocassion' => $_POST['item_ocassion'],
+                'item_time' => $_POST['item_time'],
+                'item_colour' => $_POST['item_colour']
+            );
+        
+            $_SESSION['outfit'][$count] = $item_array;
+        } 
+    } else {
+        $item_array = array(
+            'item_id' => $_POST['item_id'],
+            'item_type' => $_POST['item_type'],
+            'item_weather' => $_POST['item_weather'],
+            'item_image' => $_POST['item_image'],
+            'item_ocassion' => $_POST['item_ocassion'],
+            'item_time' => $_POST['item_time'],
+            'item_colour' => $_POST['item_colour']
+        );
+
+        $_SESSION['outfit'][0] = $item_array;
+    }
+} ?>
+
 <?php require 'view/includes/header.php'?>
 
 <section>
     <h4>Closet page</h4>
 
     <p><a href="index.php">Back to homepage</a></p>
+    <p><a href="outfit.php">Go to selected outfit of today</a></p>
+
 
 <div class="grid-container"> 
         <?php foreach ($items as $item) : ?>
-        <div class="grid-item"> <img src=images/<?= $item['image'] ?>> </div>
+        <div class="grid-item"> 
+            <img src=images/<?= $item['image'] ?>>
+            <p> <?= ucfirst($item['type']) ?> </p>
+            <form method="post">
+                <input type="hidden" name="item_type" value="<?=$item['type'] ?>">
+                <input type="hidden" name="item_id" value="<?=$item['id'] ?>">
+                <input type="hidden" name="item_image" value="<?=$item['image'] ?>">
+                <input type="hidden" name="item_weather" value="<?=$item['weather'] ?>">
+                <input type="hidden" name="item_ocassion" value="<?=$item['ocassion'] ?>">
+                <input type="hidden" name="item_colour" value="<?=$item['colour'] ?>">
+                <input type="hidden" name="item_time" value="<?=$item['time'] ?>">
+                <input type="submit" name="add_to_outfit" value="WEAR">
+            </form>
+        </div>
         <?php endforeach; ?>
 </div>
 
@@ -43,6 +98,7 @@ img {
 
 .grid-item {
   text-align: center;
+  overflow: hidden;
 }
 
 
