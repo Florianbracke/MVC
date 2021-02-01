@@ -7,6 +7,7 @@ error_reporting(E_ALL);
 
 session_start();
 
+$alert = '';
 
         try {
             $database = new PDO("mysql:host=localhost;dbname=my_digital_closet", 'root', 'root');
@@ -23,7 +24,7 @@ if(!empty($_POST['add_to_outfit'])) {
     if (isset($_SESSION['outfit'])) {
         $item_array_id = array_column($_SESSION['outfit'], 'item_id');  
 
-        if (!in_array($_POST['item'], $item_array_id)) {
+        if (!in_array($_POST['item_id'], $item_array_id)) {
             $count = count($_SESSION['outfit']);
             $item_array = array(
                 'item_id' => $_POST['item_id'],
@@ -36,6 +37,7 @@ if(!empty($_POST['add_to_outfit'])) {
             );
         
             $_SESSION['outfit'][$count] = $item_array;
+            $alert = 'The item is added to your outfit of today!';
         } 
     } else {
         $item_array = array(
@@ -49,6 +51,7 @@ if(!empty($_POST['add_to_outfit'])) {
         );
 
         $_SESSION['outfit'][0] = $item_array;
+        $alert = 'The item is added to your outfit of today!';
     }
 } ?>
 
@@ -60,7 +63,7 @@ if(!empty($_POST['add_to_outfit'])) {
     <p><a href="index.php">Back to homepage</a></p>
     <p><a href="outfit.php">Go to selected outfit of today</a></p>
 
-
+<p> <?=$alert?> </p>
 <div class="grid-container"> 
         <?php foreach ($items as $item) : ?>
         <div class="grid-item"> 

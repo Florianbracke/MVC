@@ -2,6 +2,8 @@
 
 session_start();
 
+$alert = '';
+
         try {
             $database = new PDO("mysql:host=localhost;dbname=my_digital_closet", 'root', 'root');
             // set the PDO error mode to exception
@@ -13,12 +15,14 @@ session_start();
 
 if (!empty($_POST['clear_outfit'])) {
     $_SESSION['outfit'] = array();
+    $alert = 'All the items are deleted from your outfit of today!';
 }
 
 if (!empty($_POST['delete_item'])) {
     $key = array_search($_POST['item_id'],$_SESSION['outfit']);
     unset($_SESSION['outfit'][$key]);
     $_SESSION['outfit'] = array_values($_SESSION['outfit']);
+    $alert = 'The item is deleted from your outfit of today!';
 }
 
 
@@ -37,6 +41,8 @@ if (!empty($_POST['delete_item'])) {
  <form method="post">
     <input type="submit" name="clear_outfit" value="Clear Outfit">
 </form>
+
+<p> <?=$alert?> </p>
 
  <div class="grid-container"> 
         <?php 
