@@ -19,18 +19,20 @@ try {
 
 $items =  $database->query("SELECT * FROM closet");  
 $typeResult = $database->query("SELECT DISTINCT type FROM closet ORDER BY type ASC");
-
-
+$weatherResult = $database->query("SELECT DISTINCT weather FROM closet ORDER BY weather ASC");
+$colourResult = $database->query("SELECT DISTINCT colour FROM closet ORDER BY colour ASC");
+$ocassionResult = $database->query("SELECT DISTINCT ocassion FROM closet ORDER BY ocassion ASC");
+$timeResult = $database->query("SELECT DISTINCT time FROM closet ORDER BY time ASC");
 
 
 ?>
 <html>
 <head>
 <link href="style.css" type="text/css" rel="stylesheet" />
-<title>Multiselect Dropdown Filter</title>
+<title>Digital closet</title>
 </head>
 <body>
-    <h2>Multiselect Dropdown Filter</h2>
+    <h2>Search your outfit</h2>
     <form method="POST" name="search" >
         <div id="demo-grid">
         <div class="search-box">
@@ -40,6 +42,46 @@ $typeResult = $database->query("SELECT DISTINCT type FROM closet ORDER BY type A
                 if (! empty($typeResult)) {
                     foreach ($typeResult as $key ) {
                         echo '<option value="' . $key['type'] . '">' . $key['type'] . '</option>';
+                    }
+                }
+                ?>
+            </select>
+            <select id="weather" name="weather[]" multiple="multiple">
+                <option value="0" selected="selected">Select which weather</option>
+                 <?php
+                if (! empty($weatherResult)) {
+                    foreach ($weatherResult as $key ) {
+                        echo '<option value="' . $key['weather'] . '">' . $key['weather'] . '</option>';
+                    }
+                }
+                ?>
+            </select>
+            <select id="colour" name="colour[]" multiple="multiple">
+                <option value="0" selected="selected">Select colour</option>
+                 <?php
+                if (! empty($colourResult)) {
+                    foreach ($colourResult as $key ) {
+                        echo '<option value="' . $key['colour'] . '">' . $key['colour'] . '</option>';
+                    }
+                }
+                ?>
+            </select>
+            <select id="ocassion" name="ocassion[]" multiple="multiple">
+                <option value="0" selected="selected">Select type of ocassion</option>
+                 <?php
+                if (! empty($ocassionResult)) {
+                    foreach ($ocassionResult as $key ) {
+                        echo '<option value="' . $key['ocassion'] . '">' . $key['ocassion'] . '</option>';
+                    }
+                }
+                ?>
+            </select>
+            <select id="time" name="time[]" multiple="multiple">
+                <option value="0" selected="selected">Select time</option>
+                 <?php
+                if (! empty($timeResult)) {
+                    foreach ($timeResult as $key ) {
+                        echo '<option value="' . $key['time'] . '">' . $key['time'] . '</option>';
                     }
                 }
                 ?>
