@@ -9,7 +9,7 @@
             echo "Connection failed: " . $e->getMessage();
           }
 
-$items =  $database->query("SELECT * FROM closet");    
+$items =  $database->query("SELECT * FROM closet");
 
 ?>
 <?php require 'view/includes/header.php'?>
@@ -19,12 +19,39 @@ $items =  $database->query("SELECT * FROM closet");
 
     <p><a href="index.php">Back to homepage</a></p>
 
-
-    <ul>
+<div class="grid-container"> 
         <?php foreach ($items as $item) : ?>
-        <li><?= $item['type'] ?></li>
+        <div class="grid-item"> <img src=images/<?= $item['image'] ?>> </div>
         <?php endforeach; ?>
-    </ul>
+</div>
 
 </section>
 <?php require 'view/includes/footer.php'?>
+
+<style> 
+img {
+    height: 250px;
+    width: auto;
+}
+
+.grid-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 1rem;
+}
+
+.grid-item {
+  text-align: center;
+}
+
+
+@media (min-width: 600px) {
+  .grid-container { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 900px) {
+  .grid-container { grid-template-columns: repeat(3, 1fr); }
+}
+
+</style>
