@@ -50,19 +50,7 @@ $typeResult = $database->query("SELECT DISTINCT type FROM closet ORDER BY type A
     <?php
     if (! empty($_POST['type'])) {
         ?>
-        <table cellpadding="10" cellspacing="1">
-
-    <thead>
-        <tr>
-            <th><strong>Image</strong></th>
-            <th><strong>Type</strong></th>
-            <th><strong>Weather</strong></th>
-            <th><strong>Colour</strong></th>
-            <th><strong>Ocassion</strong></th>
-            <th><strong>Time</strong></th>
-        </tr>
-    </thead>
-    <tbody>
+        
     <?php
         $query = "SELECT * from closet";
         $i = 0;
@@ -83,20 +71,17 @@ $typeResult = $database->query("SELECT DISTINCT type FROM closet ORDER BY type A
     if (! empty($result)) {
         foreach ($result as $key ) {
             ?>
-    <tr>
-            <td><div class="col" id="user_data_1"><img src="images/<?= $key['image']?>" style="height:200px;"></div></td>
-            <td><div class="col" id="user_data_1"><?php echo $key['type']; ?></div></td>
-            <td><div class="col" id="user_data_2"><?php echo $key['weather']; ?> </div></td>
-            <td><div class="col" id="user_data_3"><?php echo $key['colour']; ?> </div></td>
-            <td><div class="col" id="user_data_3"><?php echo $key['ocassion']; ?> </div></td>
-            <td><div class="col" id="user_data_3"><?php echo $key['time']; ?> </div></td>
-        </tr>
+    
+            <ul>
+            <li><img src="images/<?= $key['image']?>" style="height:200px;"> <br>
+            <?php echo $key['type']; ?> - <?php echo $key['weather']; ?> - <?php echo $key['colour']; ?> - <?php echo $key['ocassion']; ?> - <?php echo $key['time']; ?>
+            </li>
+            </ul>
     <?php
         }
         ?>
         
-    </tbody>
-</table>
+  
 <?php
     }
     ?>  
