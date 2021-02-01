@@ -15,13 +15,15 @@ if (!empty($_POST['clear_outfit'])) {
     $_SESSION['outfit'] = array();
 }
 
-if (!empty($_POST['delete_item']))
-$key=array_search($_GET['name'],$_SESSION['name']);
-if($key!==false)
-unset($_SESSION['name'][$key]);
-$_SESSION["name"] = array_values($_SESSION["name"]);
+if (!empty($_POST['delete_item'])) {
+    $key = array_search($_POST['item_id'],$_SESSION['outfit']);
+    unset($_SESSION['outfit'][$key]);
+    $_SESSION['outfit'] = array_values($_SESSION['outfit']);
+}
+
 
 ?>
+
 <?php require 'view/includes/header.php'?>
 
 <section>
@@ -33,7 +35,7 @@ $_SESSION["name"] = array_values($_SESSION["name"]);
  </section>
 
  <form method="post">
-        <input type="submit" name="clear_outfit" value="Clear Outfit">
+    <input type="submit" name="clear_outfit" value="Clear Outfit">
 </form>
 
  <div class="grid-container"> 
@@ -43,7 +45,7 @@ $_SESSION["name"] = array_values($_SESSION["name"]);
                 <p> <?= $item['item_type']?> </p>
                     <img src=images/<?= $item['item_image'] ?>>
                     <form method="post">
-                        <input type="hidden" name="item_id" value="<?=$item['id'] ?>">
+                        <input type="hidden" name="item_id" value="<?=$item['item_id'] ?>">
                         <input type="submit" name="delete_item" value="DON'T WEAR">
                     </form>
                 </div> 
