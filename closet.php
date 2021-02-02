@@ -25,7 +25,7 @@ require 'view/includes/header.php'?>
             <p> Occasion: <?= ucfirst($item['ocassion']) ?> </p>
             <p> Colour: <?= ucfirst($item['colour']) ?> </p>
             <p> Time of Day: <?= ucfirst($item['time']) ?> </p>
-            <p> Favorite: <?=$item['favorite'] ?> </p>
+            <p> <?=$item['favorite'] ?> </p>
             </button>
                 <form method="post">
                     <input type="hidden" name="item_type" value="<?=$item['type'] ?>">
@@ -45,11 +45,13 @@ require 'view/includes/header.php'?>
                     <input type="hidden" name="item_ocassion" value="<?=$item['ocassion'] ?>">
                     <input type="hidden" name="item_colour" value="<?=$item['colour'] ?>">
                     <input type="hidden" name="item_time" value="<?=$item['time'] ?>">
-                    <input type="hidden" name="item_favorite" value="<?=$item['favorite'] ?>">
                     <input type="submit" name="edit_item" value="EDIT">
                 </form>
                 <form action="deleteItem.php?delete=<?=$item['id']?>" method="post">
                     <input type="submit" name="delete_item" value="DELETE">
+                </form>
+                <form action="?favorite=<?=$item['id']?>" method="post">
+                    <input type="submit" name="add_favorite" value="Add favorite">
                 </form>
             </div>
         </div>

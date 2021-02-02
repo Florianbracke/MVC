@@ -30,6 +30,9 @@ require 'view/includes/header.php'?>
                     <input type="hidden" name="item_time" value="<?=$item['time'] ?>">
                     <input type="submit" name="add_to_outfit" value="WEAR">
                 </form>
+                <form action="?favorite=<?=$item['id']?>" method="post">
+                <input type="submit" name="remove_favorite" value="Remove Favorite">
+                </form>
         </div>
         </div>
 

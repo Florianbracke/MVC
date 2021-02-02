@@ -21,7 +21,7 @@ try {
 $items =  $database->query("SELECT * FROM closet");
 
 
-$favorites = $database->query("SELECT * FROM closet WHERE favorite = 1");
+$favorites = $database->query("SELECT * FROM closet WHERE favorite = '<i class=\"fas fa-heart\"></i>'");
 
 //closet manager
 if(!empty($_POST['add_to_outfit'])) {
@@ -105,16 +105,27 @@ if (!empty($_POST['confirm_delete'])) {
 
 if (!empty($_POST['add_favorite'])) {
 
-    $id = $_POST['item_id'];
+    $id = $_GET['favorite'];
 
-    $statement =  $database->prepare("UPDATE closet SET favorites = 1 WHERE id=?");
+
+    $statement =  $database->prepare("UPDATE closet SET favorite = '<i class=\"fas fa-heart\"></i>' WHERE id=?");
     $statement->execute([$id]);
 
-    $items = $database->query("SELECT * FROM closet WHERE id=$id");
-    header('location: closet.php');
+    $items =  $database->query("SELECT * FROM closet  WHERE favorite = '<i class=\"fas fa-heart\"></i>'");
+
 }
 
+if (!empty($_POST['remove_favorite'])) {
 
+    $id = $_GET['favorite'];
+
+
+    $statement =  $database->prepare("UPDATE closet SET favorite = '<i class=\"far fa-heart\"></i>' WHERE id=?");
+    $statement->execute([$id]);
+
+    $items =  $database->query("SELECT * FROM closet WHERE ");
+
+}
 
 // Outfit manager 
 if (!empty($_POST['clear_outfit'])) {
