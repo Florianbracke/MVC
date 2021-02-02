@@ -17,6 +17,7 @@ require 'view/includes/header.php'?>
     <input type="submit" name="clear_outfit" value="Clear Outfit">
 </form>
 
+
 <?=$alert?> 
  <div class="grid-container"> 
         <?php 

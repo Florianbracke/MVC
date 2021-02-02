@@ -21,6 +21,8 @@ try {
 $items =  $database->query("SELECT * FROM closet");
 
 
+$favorites = $database->query("SELECT * FROM closet WHERE favorite = 1");
+
 //closet manager
 if(!empty($_POST['add_to_outfit'])) {
     if (isset($_SESSION['outfit'])) {
@@ -100,6 +102,20 @@ if (!empty($_POST['confirm_delete'])) {
 }
 
 
+
+if (!empty($_POST['add_favorite'])) {
+
+    $id = $_POST['item_id'];
+
+    $statement =  $database->prepare("UPDATE closet SET favorites = 1 WHERE id=?");
+    $statement->execute([$id]);
+
+    $items = $database->query("SELECT * FROM closet WHERE id=$id");
+    header('location: closet.php');
+}
+
+
+
 // Outfit manager 
 if (!empty($_POST['clear_outfit'])) {
     $_SESSION['outfit'] = array();
@@ -112,3 +128,5 @@ if (!empty($_POST['delete_item_outfit'])) {
     $_SESSION['outfit'] = array_values($_SESSION['outfit']);
     $alert = ' <p class="alert-delete"> The item is deleted from your outfit of today! </p>';
 }
+
+
