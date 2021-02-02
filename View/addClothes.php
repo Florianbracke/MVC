@@ -1,5 +1,5 @@
 
-<?php require 'includes/header.php'?>
+
 
 <?php
 
@@ -71,4 +71,3 @@ error_reporting(E_ALL);
   <input type='submit' value='Submit' name='submit' />
 </form>
 
-<?php require 'includes/footer.php'?>
