@@ -61,20 +61,25 @@ if (!empty($_POST['edit_item'])) {
 
     $id = $_GET['edit'];
 
-    if (!empty($_POST['edit_confirm'])) {
+    $items = $database->query("SELECT * FROM closet WHERE id=$id");
+}
 
-            $new_type = $_POST['item_type'];
-            $new_weather = $_POST['item_weather'];
-            $new_ocassion = $_POST['item_ocassion'];
-            $new_time = $_POST['item_time'];
-            $new_colour = $_POST['item_colour'];
 
-        $statement =  $database->prepare("UPDATE closet SET type = ?, weather = ?, ocassion = ?, time = ?, colour = ? WHERE id=?");
-        $statement->execute([$new_type, $new_weather, $new_ocassion, $new_time, $new_colour, $id]);
-    }
+if (!empty($_POST['edit_confirm'])) {
+
+    $id = $_GET['edit'];
+
+    $new_type = $_POST['item_type'];
+    $new_weather = $_POST['item_weather'];
+    $new_ocassion = $_POST['item_ocassion'];
+    $new_time = $_POST['item_time'];
+    $new_colour = $_POST['item_colour'];
+    
+    $statement =  $database->prepare("UPDATE closet SET type = ?, weather = ?, ocassion = ?, time = ?, colour = ? WHERE id=?");
+    $statement->execute([$new_type, $new_weather, $new_ocassion, $new_time, $new_colour, $id]);
 
     $items = $database->query("SELECT * FROM closet WHERE id=$id");
-
+    $alert = 'Your edits have been saved!';
 }
 
 
@@ -82,15 +87,18 @@ if (!empty($_POST['delete_item'])) {
    
     $id = $_GET['delete'];
 
-    if (!empty($_POST['confirm_delete'])) {
-
-        $statement =  $database->prepare("DELETE FROM plant_repository WHERE id=?");
-        $statement->execute([$id]);
-    
-    }
-
-    return $database->query("SELECT * FROM plant_repository WHERE id=$id");
+    $items = $database->query("SELECT * FROM closet WHERE id=$id");
 }
+
+if (!empty($_POST['confirm_delete'])) {
+
+    $statement =  $database->prepare("DELETE FROM closet WHERE id=?");
+    $statement->execute([$id]);
+
+    $items = $database->query("SELECT * FROM closet WHERE id=$id");
+    header('location: closet.php');
+}
+
 
 // Outfit manager 
 if (!empty($_POST['clear_outfit'])) {

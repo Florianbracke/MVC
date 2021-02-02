@@ -18,6 +18,7 @@ require 'view/includes/header.php'?>
                 <form method="post">
                     <label for="item_type"> Type of item: </label>
                     <select name="item_type">
+                        <option value="<?= $item['type']?> "><?= ucfirst($item['type'])?></option>
                         <option value="outer wear">Outer Wear</option>
                         <option value="pants">Pants</option>
                         <option value="skirts">Skirts</option>
@@ -37,6 +38,7 @@ require 'view/includes/header.php'?>
                     </select> <br>
                     <label for="item_weather"> Weather type: </label>
                     <select name="item_weather">
+                    <option value="<?= $item['weather']?> "><?= ucfirst($item['weather'])?></option>
                         <option value="hot">Hot</option>
                         <option value="cold">Cold</option>
                         <option value="rain">Rain</option>
@@ -44,6 +46,7 @@ require 'view/includes/header.php'?>
                     </select> <br>
                     <label for="item_ocassion"> Ocassion: </label>
                     <select name="item_ocassion">
+                    <option value="<?= $item['ocassion']?> "><?= ucfirst($item['ocassion'])?></option>
                         <option value="casual">Casual</option>
                         <option value="classy">Classy</option>
                         <option value="party">Party</option>
@@ -53,6 +56,7 @@ require 'view/includes/header.php'?>
                     </select>   <br>                 
                     <label for="item_colour"> Colour: </label>
                     <select name="item_colour">
+                    <option value="<?= $item['colour']?> "><?= ucfirst($item['colour'])?></option>
                         <option value="red">Red</option>
                         <option value="orange">Orange</option>
                         <option value="yellow">Yellow</option>
@@ -68,12 +72,16 @@ require 'view/includes/header.php'?>
                     </select>   <br>                  
                     <label for="item_time"> Time of Day: </label>
                     <select name="item_time">
+                    <option value="<?= $item['time']?> "><?= ucfirst($item['time'])?></option>
                         <option value="day">Day</option>
                         <option value="evening">Evening</option>
                         <option value="night">Night</option>
                     </select>   <br> 
-                    <input type="submit" name="edit_item" value="EDIT">
+                    <input type="submit" name="edit_confirm" value="EDIT">
                 </form>
+                <form action="closet.php" method="post">
+                    <input type="submit" value="Cancel">
+                    </form>
         <?php endforeach; ?>
 </div>
 

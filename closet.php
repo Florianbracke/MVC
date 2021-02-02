@@ -17,9 +17,14 @@ require 'view/includes/header.php'?>
         <div class="grid-item"> 
             <button class="accordion">
                 <img src=images/<?= $item['image'] ?>>
-                <p> <?= ucfirst($item['type']) ?> </p>
             </button>
             <div class="panel">
+            <p> Type of Item: <?= ucfirst($item['type']) ?> </p>
+            <p> Weather Type: <?= ucfirst($item['weather']) ?> </p>
+            <p> Occasion: <?= ucfirst($item['ocassion']) ?> </p>
+            <p> Colour: <?= ucfirst($item['colour']) ?> </p>
+            <p> Time of Day: <?= ucfirst($item['time']) ?> </p>
+            </button>
                 <form method="post">
                     <input type="hidden" name="item_type" value="<?=$item['type'] ?>">
                     <input type="hidden" name="item_id" value="<?=$item['id'] ?>">
@@ -30,7 +35,7 @@ require 'view/includes/header.php'?>
                     <input type="hidden" name="item_time" value="<?=$item['time'] ?>">
                     <input type="submit" name="add_to_outfit" value="WEAR">
                 </form>
-                <form action="editClosetItem.php?edit=<?=$item['id']?>" method="post">
+                <form action="editItem.php?edit=<?=$item['id']?>" method="post">
                     <input type="hidden" name="item_type" value="<?=$item['type'] ?>">
                     <input type="hidden" name="item_id" value="<?=$item['id'] ?>">
                     <input type="hidden" name="item_image" value="<?=$item['image'] ?>">
@@ -40,7 +45,7 @@ require 'view/includes/header.php'?>
                     <input type="hidden" name="item_time" value="<?=$item['time'] ?>">
                     <input type="submit" name="edit_item" value="EDIT">
                 </form>
-                <form action="?delete=<?=$item['id']?>" method="post">
+                <form action="deleteItem.php?delete=<?=$item['id']?>" method="post">
                     <input type="submit" name="delete_item" value="DELETE">
                 </form>
             </div>
