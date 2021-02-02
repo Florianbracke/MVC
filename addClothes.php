@@ -1,5 +1,6 @@
 
 
+<?php require 'view/includes/navbar.php'?>
 
 <?php
 
@@ -54,20 +55,45 @@ error_reporting(E_ALL);
             $statement->execute(array($filename,$target_file));
             
             }
-          echo "<div class='displaytargetFile style='display:flex; flex-direction: column;''> <img src='$target_file' style='height: 200px' alt='upload_image'> </div>";
-         
+          
           }
       }
       if (!empty($filename)) {
-        echo "<br> <br> File upload successfully";
+        echo "<br> <br> <div class='uploadsucces' style='text-align:center; color:green;'> File upload successfully </div><br> <br>";
 
       }
     }
 ?>
-<p><a href="index.php">Back to homepage</a></p>
 
-<form method='post' action='' enctype='multipart/form-data'>
-  <input type='file' name='files[]' multiple />
-  <input type='submit' value='Submit' name='submit' />
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+  <style>
+  .form {
+    text-align:center;
+  }
+  .targetfile{
+    text-align:center;
+    
 
+  }
+  </style>
+<body>
+<div class="form">
+  <form method='post' action='' enctype='multipart/form-data'>
+    <input type='file' name='files[]' multiple /> <br>
+    <input type='submit' value='Submit' name='submit' />
+  </form>
+</div>
+<div class="targetfile">
+
+<?php  echo "<div class='displaytargetFile style='display:flex; flex-direction: column;''> <img src='$target_file' style='max-height: 300px; max-width: 200px' alt='upload_image'> </div> <br> <br>";?>
+
+</div>
+</body>
+</html>
+<?php require 'view/includes/footer.php'?>

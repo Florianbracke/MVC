@@ -11,6 +11,7 @@
      
      display: flex;
      flex-direction: row;
+    justify-content: center; 
      
  } 
  a {
@@ -18,28 +19,25 @@
      border-radius: 40%;
      color: black;
      text-decoration: none;
-     padding: 25px;
+     
  }
+
  </style>
  <body>
 
     <div class="navbar">
 
-    <form method="get" action="/MVC/closet.php">
-        <button type="submit">Your Closet</button>
-    </form>
+        <form method="get" action="/MVC/closet.php">
+            <button type="submit">Your Closet</button>
+        </form>
 
-    <form method="get" action="/MVC/view/addClothes.php">
-        <button type="submit">Expand Closet</button>
-    </form>
-    
-    <form method="get" action="/MVC/view/addClothes.php">
-        <button type="submit">Homepage</button>
-    </form>
-    
-    <form method="get" action="/MVC/view/motivation.php">
-        <button type="submit">Motivation</button>
-    </form>
+        <form method="get" action="/MVC/addClothes.php">
+            <button type="submit">Expand Closet</button>
+        </form>
+        
+        <form method="get" action="/MVC/index.php">
+            <button type="submit">Homepage</button>
+        </form>
     
     </div>
  </body>
