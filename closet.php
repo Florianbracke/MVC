@@ -30,15 +30,16 @@ require 'view/includes/header.php'?>
                     <input type="hidden" name="item_time" value="<?=$item['time'] ?>">
                     <input type="submit" name="add_to_outfit" value="WEAR">
                 </form>
-                <form method="post">
-                    <input type="hidden" name="edit_type" value="<?= $item['type'] ?>">
-                    <input type="hidden" name="edit_weather" value="<?=$item['weather'] ?>">
-                    <input type="hidden" name="edit_ocassion" value="<?=$item['ocassion'] ?>">
-                    <input type="hidden" name="edit_colour" value="<?=$item['colour'] ?>">
-                    <input type="hidden" name="edit_time" value="<?=$item['time'] ?>">
-                    <!-- <input type="submit" name="edit_item" value="EDIT"> -->
+                <form action="editClosetItem.php?edit=<?=$item['id']?>" method="post">
+                    <input type="hidden" name="item_type" value="<?=$item['type'] ?>">
+                    <input type="hidden" name="item_id" value="<?=$item['id'] ?>">
+                    <input type="hidden" name="item_image" value="<?=$item['image'] ?>">
+                    <input type="hidden" name="item_weather" value="<?=$item['weather'] ?>">
+                    <input type="hidden" name="item_ocassion" value="<?=$item['ocassion'] ?>">
+                    <input type="hidden" name="item_colour" value="<?=$item['colour'] ?>">
+                    <input type="hidden" name="item_time" value="<?=$item['time'] ?>">
+                    <input type="submit" name="edit_item" value="EDIT">
                 </form>
-                <button href="?edit=<?=$item['id']?>" class="edit-item"> EDIT </button>
                 <form action="?delete=<?=$item['id']?>" method="post">
                     <input type="submit" name="delete_item" value="DELETE">
                 </form>
@@ -48,14 +49,7 @@ require 'view/includes/header.php'?>
 </div>
 
 
-<div id="myModal" class="modal">
 
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
-  </div>
-
-</div>
 
 </section>
 <script src="script.js"></script>

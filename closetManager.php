@@ -57,26 +57,25 @@ if(!empty($_POST['add_to_outfit'])) {
     }
 } 
 
-// if (!empty($_POST['edit_item'])) {
+if (!empty($_POST['edit_item'])) {
 
-    // $id = $_GET['edit'];
+    $id = $_GET['edit'];
 
-    // if (!empty($_POST['edit'])) {
+    if (!empty($_POST['edit_confirm'])) {
 
-    //         $new_type = $_POST['item_type'];
-    //         $new_weather = $_POST['item_weather'];
-    //         $new_ocassion = $_POST['item_ocassion'];
-    //         $new_time = $_POST['item_time'];
-    //         $new_colour = $_POST['item_colour'];
+            $new_type = $_POST['item_type'];
+            $new_weather = $_POST['item_weather'];
+            $new_ocassion = $_POST['item_ocassion'];
+            $new_time = $_POST['item_time'];
+            $new_colour = $_POST['item_colour'];
 
-    //     $statement =  $database->prepare("UPDATE closet SET type = ?, weather = ?, ocassion = ?, time = ?, colour = ? WHERE id=?");
-    //     $statement->execute([$new_type, $new_weather, $new_ocassion, $new_time, $new_colour, $id]);
+        $statement =  $database->prepare("UPDATE closet SET type = ?, weather = ?, ocassion = ?, time = ?, colour = ? WHERE id=?");
+        $statement->execute([$new_type, $new_weather, $new_ocassion, $new_time, $new_colour, $id]);
+    }
 
-    // }
+    $items = $database->query("SELECT * FROM closet WHERE id=$id");
 
-    // return $database->query("SELECT * FROM closet WHERE id=$id");
-
-// }
+}
 
 
 if (!empty($_POST['delete_item'])) {
