@@ -15,20 +15,23 @@ $alert = '';
 
 if (!empty($_POST['clear_outfit'])) {
     $_SESSION['outfit'] = array();
-    $alert = 'All the items are deleted from your outfit of today!';
+    $alert = ' <p class="alert-delete"> All the items are deleted from your outfit of today!  </p>';
 }
 
 if (!empty($_POST['delete_item'])) {
     $key = array_search($_POST['item_id'],$_SESSION['outfit']);
     unset($_SESSION['outfit'][$key]);
     $_SESSION['outfit'] = array_values($_SESSION['outfit']);
-    $alert = 'The item is deleted from your outfit of today!';
+    $alert = ' <p class="alert-delete"> The item is deleted from your outfit of today! </p>';
 }
 
 
 ?>
 
 <?php require 'view/includes/header.php'?>
+
+<link rel="stylesheet" href="style.css">
+
 
 <section>
     <h4>Outfit page</h4>
@@ -42,8 +45,7 @@ if (!empty($_POST['delete_item'])) {
     <input type="submit" name="clear_outfit" value="Clear Outfit">
 </form>
 
-<p> <?=$alert?> </p>
-
+<?=$alert?> 
  <div class="grid-container"> 
         <?php 
             foreach ($_SESSION['outfit'] as $item) :?>
@@ -59,32 +61,3 @@ if (!empty($_POST['delete_item'])) {
 </div>
 
 <?php require 'view/includes/footer.php'?>
-
-<style> 
-img {
-    height: 250px;
-    width: auto;
-}
-
-.grid-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-gap: 1rem;
-}
-
-.grid-item {
-  text-align: center;
-  overflow: hidden;
-}
-
-
-@media (min-width: 600px) {
-  .grid-container { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 900px) {
-  .grid-container { grid-template-columns: repeat(3, 1fr); }
-}
-
-</style>
