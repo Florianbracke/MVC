@@ -96,17 +96,31 @@ $timeResult = $database->query("SELECT DISTINCT time FROM closet ORDER BY time A
     <?php
         $query = "SELECT * from closet";
         $i = 0;
-        $selectedOptionCount = count($_POST['type']);
-        $selectedOption = "";
+        $selectedOptionCount = count($_POST['type']+$_POST['weather']+$_POST['colour']+$_POST['ocassion']+$_POST['time']);
+        $selectedTypeOption = "";
+        $selectedWeatherOption = "";
+        $selectedColourOption = "";
+        $selectedOcassionOption = "";
+        $selectedTimeOption = "";
         while ($i < $selectedOptionCount) {
-            $selectedOption = $selectedOption . "'" . $_POST['type'][$i] . "'";
+            $selectedTypeOption = $selectedTypeOption . "'" . $_POST['type'][$i] . "'";
+            $selectedWeatherOption = $selectedWeatherOption . "'" . $_POST['weather'][$i] . "'";
+            $selectedColourOption = $selectedColourOption . "'" . $_POST['colour'][$i] . "'";
+            $selectedOcassionOption = $selectedOcassionOption . "'" . $_POST['ocassion'][$i] . "'";
+            $selectedTimeOption = $selectedTimeOption . "'" . $_POST['time'][$i] . "'";
+
             if ($i < $selectedOptionCount - 1) {
-                $selectedOption = $selectedOption . ", ";
+                $selectedTypeOption = $selectedTypeOption . ", ";
+                $selectedWeatherOption = $selectedWeatherOption . ", ";
+                $selectedColourOption = $selectedColourOption . ", ";
+                $selectedOcassionOption = $selectedOcassionOption . ", ";
+                $selectedTimeOption = $selectedTimeOption . ", ";
+
             }
             
             $i ++;
         }
-        $query = $query . " WHERE type in (" . $selectedOption . ")";
+        $query = $query . " WHERE type in (" . $selectedTypeOption . ") AND weather in (". $selectedWeatherOption. ") AND colour in (". $selectedColourOption. ") AND ocassion in (". $selectedOcassionOption. ") AND time in (". $selectedTimeOption. ")";
         
         $result = $database->query($query);
     }
