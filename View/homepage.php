@@ -5,7 +5,7 @@ Anything complex should be calculated in the model -->
     <h4>Helloo <?php echo $user->getName()?>,</h4>
 
     <p><a href="index.php?page=info">To info page</a></p>
-
+    <!-- <p><a href="index.php?page=imageUpload">Add new clothes!</a></p> -->
     <p>Put your content here.</p>
 </section>
 <?php require 'includes/footer.php'?>

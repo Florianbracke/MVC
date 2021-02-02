@@ -1,3 +1,6 @@
+
+<?php require 'includes/header.php'?>
+
 <?php
 
 ini_set('display_errors', 1);
@@ -57,13 +60,15 @@ error_reporting(E_ALL);
       }
       if (!empty($filename)) {
         echo "<br> <br> File upload successfully";
+
       }
     }
 ?>
-
+<p><a href="index.php">Back to homepage</a></p>
 
 <form method='post' action='' enctype='multipart/form-data'>
   <input type='file' name='files[]' multiple />
   <input type='submit' value='Submit' name='submit' />
 </form>
 
+<?php require 'includes/footer.php'?>
