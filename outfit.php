@@ -26,7 +26,7 @@ require 'view/includes/header.php'?>
                     <img src=images/<?= $item['item_image'] ?>>
                     <form method="post">
                         <input type="hidden" name="item_id" value="<?=$item['item_id'] ?>">
-                        <input type="submit" name="delete_item" value="DON'T WEAR">
+                        <input type="submit" name="delete_item_outfit" value="DON'T WEAR">
                     </form>
                 </div> 
             <?php endforeach; ?>

@@ -17,8 +17,7 @@ require 'view/includes/header.php'?>
         <div class="grid-item"> 
             <button class="accordion">
                 <img src=images/<?= $item['image'] ?>>
-                <p> <?= ucfirst($item['type']) ?> 
-        </p>
+                <p> <?= ucfirst($item['type']) ?> </p>
             </button>
             <div class="panel">
                 <form method="post">
@@ -31,18 +30,34 @@ require 'view/includes/header.php'?>
                     <input type="hidden" name="item_time" value="<?=$item['time'] ?>">
                     <input type="submit" name="add_to_outfit" value="WEAR">
                 </form>
-                <form action="">
-
+                <form method="post">
+                    <input type="hidden" name="edit_type" value="<?= $item['type'] ?>">
+                    <input type="hidden" name="edit_weather" value="<?=$item['weather'] ?>">
+                    <input type="hidden" name="edit_ocassion" value="<?=$item['ocassion'] ?>">
+                    <input type="hidden" name="edit_colour" value="<?=$item['colour'] ?>">
+                    <input type="hidden" name="edit_time" value="<?=$item['time'] ?>">
+                    <!-- <input type="submit" name="edit_item" value="EDIT"> -->
                 </form>
-                <form action="">
-
+                <button href="?edit=<?=$item['id']?>" class="edit-item"> EDIT </button>
+                <form action="?delete=<?=$item['id']?>" method="post">
+                    <input type="submit" name="delete_item" value="DELETE">
                 </form>
             </div>
         </div>
         <?php endforeach; ?>
 </div>
 
+
+<div id="myModal" class="modal">
+
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
+
 </section>
-<?php require 'view/includes/footer.php'?>
 <script src="script.js"></script>
+<?php require 'view/includes/footer.php'?>
 
