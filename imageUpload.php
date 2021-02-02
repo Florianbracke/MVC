@@ -50,19 +50,20 @@ error_reporting(E_ALL);
             // Execute query
             $statement->execute(array($filename,$target_file));
             
-          }
-        echo $target_file;
+            }
+          echo "<div class='displaytargetFile style='display:flex; flex-direction: column;''> <img src='$target_file' style='height: 200px' alt='upload_image'> </div>";
          
-          
           }
       }
-      echo "File upload successfully";
+      if (!empty($filename)) {
+        echo "<br> <br> File upload successfully";
+      }
     }
 ?>
 
-<div class="targetFile"><img src="<?= $target_file?>" alt="qwe"></div>
 
 <form method='post' action='' enctype='multipart/form-data'>
   <input type='file' name='files[]' multiple />
   <input type='submit' value='Submit' name='submit' />
 </form>
+
