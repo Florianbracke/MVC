@@ -29,6 +29,10 @@ img {
   font-family: FontAwesome;
 }
 
+.editPageButton {
+  font-size: 16px;
+}
+
 form {
   display: inline;
 }
@@ -191,4 +195,17 @@ form {
   display: inline-block;
   margin: 0 0 1em;
   width: 100%;
+}
+
+
+.custom-select {
+  background-color:#EFEFEF;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
 }

@@ -75,15 +75,17 @@ require 'view/includes/header.php'?>
                     </select>   <br>                  
                     <label for="item_time"> Time of Day: </label>
                     <select name="item_time" class="custom-select">
-                    <option value="<?= $item['time']?> "><?= ucfirst($item['time'])?></option>
+                        <option value="<?= $item['time']?> "><?= ucfirst($item['time'])?></option>
                         <option value="day">Day</option>
                         <option value="evening">Evening</option>
                         <option value="night">Night</option>
-                    </select>   <br> 
-                    <input type="submit" name="edit_confirm" value="Edit" class="button-closet">
+                    </select>   
+                    <br> 
+                    <br> 
+                    <input type="submit" name="edit_confirm" value="Edit" class="button-closet editPageButton">
                 </form>
                 <form action="closet.php" method="post">
-                    <input type="submit" value="Cancel" class="button-closet">
+                    <input type="submit" value="Cancel" class="button-closet editPageButton">
                 </form>
         </div>
         <?php endforeach; ?>
