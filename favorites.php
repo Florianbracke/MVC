@@ -18,6 +18,7 @@ require 'view/includes/header.php'?>
 </div>
 
  <?=$alert?>
+<div class="container"> 
 <div class="masonry"> 
         <?php foreach ($favorites as $item) : ?>
         <div class="masonry-item"> 
@@ -52,7 +53,7 @@ require 'view/includes/header.php'?>
         <?php endforeach; ?>
 </div>
 
-
+</div>
 
 
 </section>

@@ -6,31 +6,45 @@ require 'view/includes/header.php'?>
 
 
 <section>
-    <h4>Outfit page</h4>
+<div class="topnav">
+  <h3>Today's outfit</h3> 
+  <ul>
+    <li><a href="upload.php"><i class="fas fa-file-upload"></i></a></li>
+    <li><a href="outfit.php"><i class="fas fa-calendar-day"></i></a></li>
+    <li><a href="favorites.php"><i class="fas fa-heart"></i></a></li>
+  </ul>
+</div>
 
-    <p><a href="index.php">Back to homepage</a></p>
-    <p><a href="closet.php">Back to closet</a></p>
-
- </section>
-
+<div class="container"> 
  <form method="post">
-    <input type="submit" name="clear_outfit" value="Clear Outfit">
+    <input type="submit" name="clear_outfit" value="Clear Outfit" class="button-closet">
 </form>
 
 
 <?=$alert?> 
- <div class="grid-container"> 
-        <?php 
-            foreach ($_SESSION['outfit'] as $item) :?>
-                <div class="grid-item"> 
-                <p> <?= $item['item_type']?> </p>
-                    <img src=images/<?= $item['item_image'] ?>>
-                    <form method="post">
-                        <input type="hidden" name="item_id" value="<?=$item['item_id'] ?>">
-                        <input type="submit" name="delete_item_outfit" value="DON'T WEAR">
-                    </form>
-                </div> 
-            <?php endforeach; ?>
+ <div class="masonry"> 
+        <?php foreach ($_SESSION['outfit'] as $item) :?>
+        <div class="masonry-item"> 
+            <button class="accordion">
+                <img src=images/<?= $item['item_image']?>>
+            </button>
+            <div class="panel">
+                <ul>
+                    <li> <?= ucfirst($item['item_type']) ?> | </li>
+                    <li> <?= ucfirst($item['item_weather']) ?> weather | </li>
+                    <li> <?= ucfirst($item['item_ocassion']) ?> |</li>
+                    <li> <?= ucfirst($item['item_colour']) ?>| </li>
+                    <li> <?= ucfirst($item['item_time']) ?> time </li>
+                </ul>
+                <form method="post">
+                    <input type="hidden" name="item_id" value="<?=$item['item_id'] ?>">
+                    <input type="submit" name="delete_item_outfit" value="DON'T WEAR" class="button-closet">
+                </form>
+            </div> 
+        </div> 
+        <?php endforeach; ?>
 </div>
+</div>
+</section>
 
-<?php require 'view/includes/footer.php'?>
+<?php require 'view/includes/undernav.php'?>
