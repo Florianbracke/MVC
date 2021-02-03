@@ -127,12 +127,13 @@ form {
 .container {
   align-items: center;
   height: 100%;    
+  padding-bottom: 214px;
 }
 
 .navbar-down {
   background-color: #f8f8ff  ;
   overflow: hidden;
-  position: sticky;
+  position: fixed;
   bottom: 0;
   width: 100%;
   display: flex;
