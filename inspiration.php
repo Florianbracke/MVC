@@ -6,35 +6,42 @@ require 'view/includes/header.php'?>
 <script src="https://kit.fontawesome.com/749c4bb197.js" crossorigin="anonymous"></script>
 
 <section>
-
-<p><a href="index.php">Back to homepage</a></p>
-    <p><a href="outfit.php">Go to outfit of today</a></p>
-    <p><a href="favorites.php">Go to favorites</a></p>
-    <p><a href="closet.php">Go to closet</a></p>
-
-
-<h2> Get inspired</h2>
-
+<div class="topnav">
+    <h3>Get Inspired</h3> 
+    <ul>
+        <li><a href="upload.php"><i class="fas fa-file-upload"></i></a></li>
+        <li><a href="outfit.php"><i class="fas fa-calendar-day"></i></a></li>
+        <li><a href="favorites.php"><i class="fas fa-heart"></i></a></li>
+    </ul>
+</div>
 
  <?=$alert?>
+ <div class="inspiration-item">
+<ul>
 <img src=images/<?= $image ?>>
-<p> Type of Item: <?= ucfirst($type) ?> </p>
-<p> Weather Type: <?= ucfirst($weather) ?> </p>
-<p> Occasion: <?= ucfirst($ocassion) ?> </p>
-<p> Colour: <?= ucfirst($colour) ?> </p>
-<p> Time of Day: <?= ucfirst($time) ?> </p>
-<div class="grid-container"> 
+    <li> <?= ucfirst($type) ?> | </li>
+    <li> <?= ucfirst($weather) ?> weather | </li>
+    <li> <?= ucfirst($ocassion) ?> |</li>
+    <li> <?= ucfirst($colour) ?>| </li>
+    <li> <?= ucfirst($time) ?></li>
+</ul>
+</div>
+<h5>Recommendations: </h5>
+<div class="masonry"> 
         <?php foreach ($items as $item) : ?>
-        <div class="grid-item"> 
+        <div class="masonry-item"> 
             <button class="accordion">
                 <img src=images/<?= $item['image'] ?>>
             </button>
         <div class="panel">
-            <p> Type of Item: <?= ucfirst($item['type']) ?> </p>
-            <p> Weather Type: <?= ucfirst($item['weather']) ?> </p>
-            <p> Occasion: <?= ucfirst($item['ocassion']) ?> </p>
-            <p> Colour: <?= ucfirst($item['colour']) ?> </p>
-            <p> Time of Day: <?= ucfirst($item['time']) ?> </p>
+            <ul>
+                <li> <?= ucfirst($item['type']) ?> | </li>
+                <li> <?= ucfirst($item['weather']) ?> weather | </li>
+                <li> <?= ucfirst($item['ocassion']) ?> |</li>
+                <li> <?= ucfirst($item['colour']) ?>| </li>
+                <li> <?= ucfirst($item['time']) ?> | </li>
+                <li> <?=$item['favorite'] ?> </li>
+            </ul>
             <form method="post">
                     <input type="hidden" name="item_type" value="<?= $item['type'] ?>">
                     <input type="hidden" name="item_id" value="<?=$item['id'] ?>">
@@ -43,7 +50,7 @@ require 'view/includes/header.php'?>
                     <input type="hidden" name="item_ocassion" value="<?=$item['ocassion'] ?>">
                     <input type="hidden" name="item_colour" value="<?=$item['colour'] ?>">
                     <input type="hidden" name="item_time" value="<?=$item['time'] ?>">
-                    <input type="submit" name="add_to_outfit" value="WEAR">
+                    <input type="submit" name="add_to_outfit" value="WEAR" class="button-closet">
             </form>
         </div>
         </div>
@@ -56,5 +63,5 @@ require 'view/includes/header.php'?>
 
 </section>
 <script src="script.js"></script>
-<?php require 'view/includes/footer.php'?>
+<?php require 'view/includes/undernav.php'?>
 
