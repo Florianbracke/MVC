@@ -99,6 +99,20 @@ form {
   }
 }
 
+.container .delete-list {
+  list-style: none;
+  padding-inline-start: 0%;
+  text-align: center;
+}
+
+.delete-list li {
+  display: inline;
+}
+
+.form-delete {
+  text-align: center;
+}
+
 
 .inspiration-item ul{
   padding-inline-start: 0%;
