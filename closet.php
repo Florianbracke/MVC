@@ -6,7 +6,7 @@ require 'view/includes/header.php'?>
 
 
 <div class="topnav">
-  <h3>Your closet</h3> 
+  <h3>Your Closet</h3> 
   <ul>
     <li><a href="upload.php"><i class="fas fa-file-upload"></i></a></li>
     <li><a href="outfit.php"><i class="fas fa-calendar-day"></i></a></li>
