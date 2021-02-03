@@ -11,5 +11,6 @@ class InfoController
 
         //load the view
         require 'View/info.php';
+        
     }
 }

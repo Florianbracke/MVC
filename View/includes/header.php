@@ -7,7 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Becode - Boiler plate MVC</title>
 </head>
+<style>
+header{
+    text-align:center;
+    color:red;
+}
+    </style>
 <body>
     <header>
-        <h1>Welcome to my site</h1>
+        <h1>Welcome to your closet!</h1>
     </header>
