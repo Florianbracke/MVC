@@ -58,6 +58,9 @@ if(!empty($_POST['add_to_outfit'])) {
         $_SESSION['outfit'][0] = $item_array;
         $alert = '<p class="alert"> The item is added to your outfit of today! </p>';
     }
+
+    header('location: outfit.php');
+
 } 
 
 if (!empty($_POST['edit_item'])) {
