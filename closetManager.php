@@ -208,7 +208,7 @@ if (!empty($_POST['clear_outfit'])) {
 }
 
 if (!empty($_POST['delete_item_outfit'])) {
-    $key = array_search($_POST['item_id'],$_SESSION['outfit']);
+    $key = array_search($_POST['item_id'], array_column($_SESSION['outfit'], 'item_id'));
     unset($_SESSION['outfit'][$key]);
     $_SESSION['outfit'] = array_values($_SESSION['outfit']);
     $alert = ' <p class="alert-delete"> The item is deleted from your outfit of today! </p>';

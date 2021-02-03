@@ -29,6 +29,10 @@ img {
   font-family: FontAwesome;
 }
 
+.editPageButton {
+  font-size: 16px;
+}
+
 form {
   display: inline;
 }
@@ -76,23 +80,18 @@ form {
   padding: 5px;
 }
 
-@media (min-width: 600px) {
-  .masonry {  
-    column-count: 4;
-  }
+.container .delete-list {
+  list-style: none;
+  padding-inline-start: 0%;
+  text-align: center;
 }
 
-@media (min-width: 900px) {
-  .masonry {  
-    column-count: 4;
-  }
-  .panel {
-    font-size: medium;
-  }
-  .button-closet {
-    min-width: 100px;
-    font-size: medium;
-  }
+.delete-list li {
+  display: inline;
+}
+
+.form-delete {
+  text-align: center;
 }
 
 
@@ -109,12 +108,13 @@ form {
 .container {
   align-items: center;
   height: 100%;    
+  padding-bottom: 214px;
 }
 
 .navbar-down {
   background-color: #f8f8ff  ;
   overflow: hidden;
-  position: sticky;
+  position: fixed;
   bottom: 0;
   width: 100%;
   display: flex;
@@ -185,10 +185,61 @@ form {
 .masonry {
   column-count: 2;
   column-gap: 1em;
+  padding-bottom: 104px;
 }
 
 .masonry-item {
   display: inline-block;
   margin: 0 0 1em;
   width: 100%;
+}
+
+
+.custom-select {
+  background-color:#EFEFEF;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+
+
+
+@media only screen and (min-width: 1024px) {
+  .masonry {
+    column-count: 4;
+    padding-bottom: 104px;
+  }
+  .panel {
+    font-size: 15px;
+  }
+  .button-closet {
+    min-width: 40px;
+    font-size: 15px;
+  }
+
+}
+
+
+/* Masonry on medium-sized screens */
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+  .masonry {
+    column-count: 3;
+  }
+
+  .panel {
+    font-size: medium;
+  }
+  .button-closet {
+    min-width: 100px;
+    font-size: medium;
+  }
+
+  .container {
+    padding-bottom: 304px;
+  }
 }
