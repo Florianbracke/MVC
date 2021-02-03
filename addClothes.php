@@ -1,6 +1,6 @@
 
 
-<?php require 'view/includes/navbar.php'?>
+<?php //require 'view/includes/navbar.php'?>
 
 <?php
 
@@ -61,8 +61,14 @@ error_reporting(E_ALL);
       if (!empty($filename)) {
         echo "<br> <br> <div class='uploadsucces' style='text-align:center; color:green;'> File upload successfully </div><br> <br>";
 
+        echo "<div style='display:flex; flex-direction: column;'> 
+        <img src='$target_file' style='max-height: 300px; max-width: 200px' alt='upload_image'>  </div> <br> <br>";
+
       }
     }
+
+
+ 
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +78,8 @@ error_reporting(E_ALL);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-  <style>
+
+<style>
   .form {
     text-align:center;
   }
@@ -81,17 +88,18 @@ error_reporting(E_ALL);
     
 
   }
-  </style>
+</style>
+
 <body>
+
 <div class="form">
   <form method='post' action='' enctype='multipart/form-data'>
     <input type='file' name='files[]' multiple /> <br>
     <input type='submit' value='Submit' name='submit' />
   </form>
 </div>
-<div class="targetfile">
 
-<?php  echo "<div class='displaytargetFile style='display:flex; flex-direction: column;''> <img src='$target_file' style='max-height: 300px; max-width: 200px' alt='upload_image'> </div> <br> <br>";?>
+<div class="targetfile">
 
 </div>
 </body>
