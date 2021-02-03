@@ -12,13 +12,32 @@ img {
   max-width: 100%;
   max-height: 100%;
   border-radius: 15px;
+  box-shadow: 3px 3px 5px #B8B8B8;
+}
+
+
+.button-closet {
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 8px;
+  padding: 10px 5px;
+  min-width: 50px;
+  margin: 3px;
+  display: inline-block;
+  border-radius: 5px;
+  font-family: FontAwesome;
+}
+
+form {
+  display: inline;
 }
 
 .grid-container {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 0.5rem;
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -37,30 +56,42 @@ img {
   background-color: #f8f8ff;
   color: #444;
   cursor: pointer;
-  padding: 18px;
+  padding: 10px;
   width: 100%;
   text-align: left;
   border: none;
   outline: none;
   transition: 0.4s;
   text-align: center;
-  border-radius: 15px;
 }
 
 .panel {
-  padding: 0 18px;
   background-color: #f8f8ff;
   display: none;
   overflow: hidden;
   font-size: small;
+  text-align: center;
+}
+
+.panel ul {
+  padding-inline-start: 0%;
+}
+
+.panel li {
+  list-style: none;
+  display: inline;
 }
 
 .alert-delete {
-    text-align: center;
-    background-color: #FFCCCB;
-    padding: 5px;
+  text-align: center;
+  background-color: #FFCCCB;
+  padding: 5px;
 }
 
+
+.panel ul {
+  list-style: none;
+}
 
 @media (min-width: 600px) {
   .grid-container { grid-template-columns: repeat(2, 1fr); }
@@ -68,6 +99,9 @@ img {
 
 @media (min-width: 900px) {
   .grid-container { grid-template-columns: repeat(3, 1fr); }
+  .panel {
+    font-size: medium;
+  }
 }
 
 
@@ -111,6 +145,7 @@ img {
   background-color: #f8f8ff;
   overflow: hidden;
   position: sticky;
+  top: 0;
   width: 100%;
 }
 
