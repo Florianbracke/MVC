@@ -11,7 +11,7 @@ require 'view/includes/header.php'?>
 
  <?=$alert?>
 <div class="grid-container"> 
-        <?php foreach ($inspiration as $item) : ?>
+        <?php foreach ($favorites as $item) : ?>
         <div class="grid-item"> 
             <button class="accordion">
                 <img src=images/<?= $item['image'] ?>>
