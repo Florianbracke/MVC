@@ -1,0 +1,245 @@
+
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  margin: 0;
+  padding: 1rem;
+  background-color: #f8f8ff;
+}
+
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px #B8B8B8;
+}
+
+
+.button-closet {
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 8px;
+  padding: 10px 5px;
+  min-width: 40px;
+  margin: 3px;
+  display: inline-block;
+  border-radius: 5px;
+  font-family: FontAwesome;
+}
+
+.editPageButton {
+  font-size: 16px;
+}
+
+form {
+  display: inline;
+}
+
+.alert {
+  text-align: center;
+  background-color: #D0F0C0;
+  padding: 5px;
+}
+
+.accordion {
+  background-color: #f8f8ff;
+  color: #444;
+  cursor: pointer;
+  padding: 5px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  text-align: center;
+}
+
+.panel {
+  background-color: #f8f8ff;
+  display: none;
+  overflow: hidden;
+  font-size: small;
+  text-align: center;
+}
+
+.panel ul {
+  padding-inline-start: 0%;
+  list-style: none;
+}
+
+.panel li {
+  list-style: none;
+  display: inline;
+}
+
+.alert-delete {
+  text-align: center;
+  background-color: #FFCCCB;
+  padding: 5px;
+}
+
+.container .delete-list {
+  list-style: none;
+  padding-inline-start: 0%;
+  text-align: center;
+}
+
+.delete-list li {
+  display: inline;
+}
+
+.form-delete {
+  text-align: center;
+}
+
+
+.inspiration-item ul{
+  padding-inline-start: 0%;
+  text-align: center;
+}
+
+.inspiration-item li {
+  display: inline;
+  list-style: none;
+}
+
+.container {
+  align-items: center;
+  height: 100%;    
+  padding-bottom: 214px;
+}
+
+.navbar-down {
+  background-color: #f8f8ff  ;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-down a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  margin: 0 2rem;
+}
+
+.navbar-down a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+.edit-text {
+  text-align: center;
+}
+
+
+.fas {
+  color: #444;
+}
+
+
+.topnav {
+  background-color: #f8f8ff;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  text-align:right;  
+
+}
+
+.topnav h3 {
+  float:left;
+  padding-left: 1rem;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav li {
+  list-style: none;
+  float: right;
+}
+
+.masonry {
+  column-count: 2;
+  column-gap: 1em;
+  padding-bottom: 104px;
+}
+
+.masonry-item {
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
+}
+
+
+.custom-select {
+  background-color:#EFEFEF;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+
+
+
+@media only screen and (min-width: 1024px) {
+  .masonry {
+    column-count: 4;
+    padding-bottom: 104px;
+  }
+  .panel {
+    font-size: 15px;
+  }
+  .button-closet {
+    min-width: 40px;
+    font-size: 15px;
+  }
+
+}
+
+
+/* Masonry on medium-sized screens */
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+  .masonry {
+    column-count: 3;
+  }
+
+  .panel {
+    font-size: medium;
+  }
+  .button-closet {
+    min-width: 100px;
+    font-size: medium;
+  }
+
+  .container {
+    padding-bottom: 304px;
+  }
+}
