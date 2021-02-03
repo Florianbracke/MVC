@@ -71,7 +71,7 @@
         </div>
             
     <?php
-    if (! empty($_POST['type'])) {
+    if (! empty($_POST['type']) ) {
         ?>
         
     <?php
@@ -84,7 +84,15 @@
         $selectedOcassionOption = "";
         $selectedTimeOption = "";
         while ($i < $selectedOptionCount) {
+
+            if($_POST['type'][$i] === "all"){
+                $selectedTypeOption = "'not null'";
+                var_dump($selectedTypeOption);
+            } else {
+                var_dump('test2');
             $selectedTypeOption = $selectedTypeOption . "'" . $_POST['type'][$i] . "'";
+            }
+            
             $selectedWeatherOption = $selectedWeatherOption . "'" . $_POST['weather'][$i] . "'";
             $selectedColourOption = $selectedColourOption . "'" . $_POST['colour'][$i] . "'";
             $selectedOcassionOption = $selectedOcassionOption . "'" . $_POST['ocassion'][$i] . "'";
@@ -101,7 +109,9 @@
             
             $i ++;
         }
+        var_dump($selectedTypeOption);
 
+        
         $query = $query . " WHERE type in (" . $selectedTypeOption . ") AND weather in (". $selectedWeatherOption. ") AND colour in (". $selectedColourOption. ") AND ocassion in (". $selectedOcassionOption. ") AND time in (". $selectedTimeOption. ")";
         $result = $database->query($query);
     }
