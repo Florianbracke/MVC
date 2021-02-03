@@ -6,7 +6,15 @@
 <title>Digital closet</title>
 </head>
 <body>
-    <h2>Search your outfit</h2>
+    <div class="topnav">
+    <h3>Search outfit</h3> 
+    <ul>
+        <li><a href="upload.php"><i class="fas fa-file-upload"></i></a></li>
+        <li><a href="outfit.php"><i class="fas fa-calendar-day"></i></a></li>
+        <li><a href="favorites.php"><i class="fas fa-heart"></i></a></li>
+    </ul>
+    </div>
+
     <form method="POST" name="search" >
         <div id="demo-grid">
         <div class="search-box">

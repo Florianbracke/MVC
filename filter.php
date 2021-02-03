@@ -9,7 +9,7 @@ ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
 try {
-    $database = new PDO("mysql:host=localhost;dbname=closet", 'root', 'root');
+    $database = new PDO("mysql:host=localhost;port=3307;dbname=my_digital_closet", 'root', 'root');
     // set the PDO error mode to exception
     $database->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -28,4 +28,7 @@ $timeResult = $database->query("SELECT DISTINCT time FROM closet ORDER BY time A
 
 
 
-require "filteroverview.php";
+//require 'closetManager.php';
+require 'view/includes/header.php';
+require 'view/includes/undernav.php';
+require 'filteroverview.php';
