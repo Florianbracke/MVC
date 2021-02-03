@@ -83,20 +83,40 @@
         $selectedColourOption = "";
         $selectedOcassionOption = "";
         $selectedTimeOption = "";
+        $selectedAllTypeOption="";
+        $selectedAllWeatherption="";
+        $selectedAllColourOption="";
+        $selectedAllOcassionOption="";
+        $selectedAllTimeOption="";
+
+
         while ($i < $selectedOptionCount) {
 
             if($_POST['type'][$i] === "all"){
-                $selectedTypeOption = "'not null'";
-                var_dump($selectedTypeOption);
+                $selectedAllTypeOption = "not null";
             } else {
-                var_dump('test2');
-            $selectedTypeOption = $selectedTypeOption . "'" . $_POST['type'][$i] . "'";
+                $selectedTypeOption = $selectedTypeOption . "'" . $_POST['type'][$i] . "'";
             }
-            
-            $selectedWeatherOption = $selectedWeatherOption . "'" . $_POST['weather'][$i] . "'";
-            $selectedColourOption = $selectedColourOption . "'" . $_POST['colour'][$i] . "'";
-            $selectedOcassionOption = $selectedOcassionOption . "'" . $_POST['ocassion'][$i] . "'";
-            $selectedTimeOption = $selectedTimeOption . "'" . $_POST['time'][$i] . "'";
+            if($_POST['weather'][$i] === "all"){
+                $selectedAllWeatherOption = "not null";
+            } else {
+                $selectedWeatherOption = $selectedWeatherOption . "'" . $_POST['weather'][$i] . "'";
+            }
+            if($_POST['colour'][$i] === "all"){
+                $selectedAllColourOption = "not null";
+            } else {
+                $selectedColourOption = $selectedColourOption . "'" . $_POST['colour'][$i] . "'";
+            }
+            if($_POST['ocassion'][$i] === "all"){
+                $selectedAllOcassionOption = "not null";
+            } else {
+                $selectedOcassionOption = $selectedOcassionOption . "'" . $_POST['ocassion'][$i] . "'";
+            }
+            if($_POST['time'][$i] === "all"){
+                $selectedAllTimeOption = "not null";
+            } else {
+                $selectedTimeOption = $selectedTimeOption . "'" . $_POST['time'][$i] . "'";
+            }
 
             if ($i < $selectedOptionCount - 1) {
                 $selectedTypeOption = $selectedTypeOption . ", ";
@@ -109,10 +129,34 @@
             
             $i ++;
         }
-        var_dump($selectedTypeOption);
-
+      
         
-        $query = $query . " WHERE type in (" . $selectedTypeOption . ") AND weather in (". $selectedWeatherOption. ") AND colour in (". $selectedColourOption. ") AND ocassion in (". $selectedOcassionOption. ") AND time in (". $selectedTimeOption. ")";
+        if (empty($selectedAllTypeOption)){
+            $query = $query . " WHERE type in (" . $selectedTypeOption . ")";
+        } else {
+            $query = $query . " WHERE type is not null";
+        }
+        if (empty($selectedAllWeatherOption)){
+            $query = $query . " AND weather in (" . $selectedWeatherOption . ")";
+        } else {
+            $query = $query . " AND weather is not null";
+        }
+        if (empty($selectedAllColourOption)){
+            $query = $query . " AND colour in (" . $selectedColourOption . ")";
+        } else {
+            $query = $query . " AND colour is not null";
+        }
+        if (empty($selectedAllOcassionOption)){
+            $query = $query . " AND ocassion in (" . $selectedOcassionOption . ")";
+        } else {
+            $query = $query . " AND ocassion is not null";
+        }
+        if (empty($selectedAllTimeOption)){
+            $query = $query . " AND time in (" . $selectedTimeOption . ")";
+        } else {
+            $query = $query . " AND time is not null";
+        }
+            
         $result = $database->query($query);
     }
     if (! empty($result)) {
