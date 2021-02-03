@@ -80,25 +80,6 @@ form {
   padding: 5px;
 }
 
-@media (min-width: 600px) {
-  .masonry {  
-    column-count: 4;
-  }
-}
-
-@media (min-width: 900px) {
-  .masonry {  
-    column-count: 4;
-  }
-  .panel {
-    font-size: medium;
-  }
-  .button-closet {
-    min-width: 100px;
-    font-size: medium;
-  }
-}
-
 .container .delete-list {
   list-style: none;
   padding-inline-start: 0%;
@@ -204,6 +185,7 @@ form {
 .masonry {
   column-count: 2;
   column-gap: 1em;
+  padding-bottom: 104px;
 }
 
 .masonry-item {
@@ -223,4 +205,41 @@ form {
   font-size: inherit;
   cursor: inherit;
   line-height: inherit;
+}
+
+
+
+@media only screen and (min-width: 1024px) {
+  .masonry {
+    column-count: 4;
+    padding-bottom: 104px;
+  }
+  .panel {
+    font-size: 15px;
+  }
+  .button-closet {
+    min-width: 40px;
+    font-size: 15px;
+  }
+
+}
+
+
+/* Masonry on medium-sized screens */
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+  .masonry {
+    column-count: 3;
+  }
+
+  .panel {
+    font-size: medium;
+  }
+  .button-closet {
+    min-width: 100px;
+    font-size: medium;
+  }
+
+  .container {
+    padding-bottom: 304px;
+  }
 }
