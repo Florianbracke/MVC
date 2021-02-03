@@ -18,9 +18,9 @@ require 'view/includes/header.php'?>
 <div class="container"> 
 
 <?=$alert?>
-<div class="grid-container"> 
+<div class="masonry"> 
     <?php foreach ($items as $item) : ?>
-    <div class="grid-item"> 
+    <div class="mansonry-item"> 
         <button class="accordion">
             <img src=images/<?= $item['image'] ?>>
         </button>
