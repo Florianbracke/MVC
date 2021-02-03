@@ -93,13 +93,17 @@ if (!empty($_POST['delete_item'])) {
     $items = $database->query("SELECT * FROM closet WHERE id=$id");
 }
 
-if (!empty($_POST['confirm_delete'])) {
+if (!empty($_POST['delete_confirm'])) {
+
+    $id = $_GET['delete'];
 
     $statement =  $database->prepare("DELETE FROM closet WHERE id=?");
     $statement->execute([$id]);
 
     $items = $database->query("SELECT * FROM closet WHERE id=$id");
     header('location: closet.php');
+    $alert = 'Item has been deleted';
+
 }
 
 
