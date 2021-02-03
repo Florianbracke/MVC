@@ -2,8 +2,6 @@
 require 'closetManager.php';
 require 'view/includes/header.php'?>
 
-<link rel="stylesheet" href="style.css">
-<script src="https://kit.fontawesome.com/749c4bb197.js" crossorigin="anonymous"></script>
 
 <section>
     <h4>Closet page</h4>

@@ -2,19 +2,22 @@
 require 'closetManager.php';
 require 'view/includes/header.php'?>
 
-<link rel="stylesheet" href="style.css">
-<script src="https://kit.fontawesome.com/749c4bb197.js" crossorigin="anonymous"></script>
-
 <section>
 
-    <p><a href="index.php">Back to homepage</a></p>
-    <p><a href="outfit.php">Go to outfit of today</a></p>
-    <p><a href="favorites.php">Go to favorites</a></p>
 
-    <h4>Your closet</h4>
+<div class="topnav">
+  <h3>Your closet</h3> 
+  <ul>
+    <li><a href="upload.php"><i class="fas fa-file-upload"></i></a></li>
+    <li><a href="outfit.php"><i class="fas fa-calendar-day"></i></a></li>
+    <li><a href="favorites.php"><i class="fas fa-heart"></i></a></li>
+  </ul>
+</div>
 
 
- <?=$alert?>
+<div class="container"> 
+
+<?=$alert?>
 <div class="grid-container"> 
         <?php foreach ($items as $item) : ?>
         <div class="grid-item"> 
@@ -69,10 +72,11 @@ require 'view/includes/header.php'?>
         <?php endforeach; ?>
 </div>
 
+</div>
+
 
 
 
 </section>
-<script src="script.js"></script>
-<?php require 'view/includes/footer.php'?>
+<?php require 'view/includes/undernav.php'?>
 
