@@ -23,6 +23,7 @@ $items =  $database->query("SELECT * FROM closet");
 
 $favorites = $database->query("SELECT * FROM closet WHERE favorite = '<i class=\"fas fa-heart\"></i>'");
 
+
 //closet manager
 if(!empty($_POST['add_to_outfit'])) {
     if (isset($_SESSION['outfit'])) {
@@ -103,16 +104,79 @@ if (!empty($_POST['confirm_delete'])) {
 
 
 
+if (!empty($_POST['get_inspiration'])) {
+
+    $weather = $_POST['item_weather'];
+    $ocassion = $_POST['item_ocassion'];
+    $time = $_POST['item_time'];
+    $type = $_POST['item_type'];
+    $image = $_POST['item_image'];
+    $colour = $_POST['item_colour'];
+
+
+ switch ($time) {
+    case 'day':
+        $time_inspo = "time = 'day'";
+        break;
+    case 'evening':
+        $time_inspo = "time = 'evening'";
+        break;
+    case 'night':
+        $time_inspo = "time = 'night'";
+        break;
+    default :
+        $time_inspo = "time = 'all'";
+}
+
+switch ($ocassion) {
+    case 'casual':
+        $ocassion_inspo = " AND ocassion = 'casual'";
+        break;
+    case 'classy':
+        $ocassion_inspo = " AND ocassion = 'classy'";
+        break;
+    case 'party':
+        $ocassion_inspo = " AND ocassion = 'party'";
+        break;
+    case 'business':
+        $ocassion_inspo = " AND ocassion = 'business'";
+        break;
+    case 'sporty':
+        $ocassion_inspo = " AND ocassion = 'sporty'";
+        break;
+    default:
+        $ocassion_inspo = " AND ocassion = 'all'";
+}
+
+ switch ($weather) {
+    case 'hot':
+        $weather_inspo = " AND weather = 'hot'";
+        break;
+    case 'cold':
+        $weather_inspo = " AND weather = 'cold'";
+        break;
+    case 'rain':
+        $weather_inspo = " AND weather = 'rain'";
+        break;
+    default :
+        $weather_inspo = " AND weather = 'all'";
+}
+
+$type_inspo = " AND `type` <> '$type'";
+
+$items = $database->query("SELECT * FROM closet WHERE $time_inspo $weather_inspo $ocassion_inspo $type_inspo");
+
+}
+
 if (!empty($_POST['add_favorite'])) {
 
     $id = $_GET['favorite'];
 
-
     $statement =  $database->prepare("UPDATE closet SET favorite = '<i class=\"fas fa-heart\"></i>' WHERE id=?");
     $statement->execute([$id]);
 
-    $items =  $database->query("SELECT * FROM closet  WHERE favorite = '<i class=\"fas fa-heart\"></i>'");
-
+    header('location: favorites.php');
+    
 }
 
 if (!empty($_POST['remove_favorite'])) {
@@ -123,7 +187,7 @@ if (!empty($_POST['remove_favorite'])) {
     $statement =  $database->prepare("UPDATE closet SET favorite = '<i class=\"far fa-heart\"></i>' WHERE id=?");
     $statement->execute([$id]);
 
-    $items =  $database->query("SELECT * FROM closet WHERE ");
+    $favorites = $database->query("SELECT * FROM closet WHERE favorite = '<i class=\"fas fa-heart\"></i>'");
 
 }
 

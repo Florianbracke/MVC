@@ -6,11 +6,13 @@ require 'view/includes/header.php'?>
 <script src="https://kit.fontawesome.com/749c4bb197.js" crossorigin="anonymous"></script>
 
 <section>
-    <h4>Closet page</h4>
 
     <p><a href="index.php">Back to homepage</a></p>
     <p><a href="outfit.php">Go to outfit of today</a></p>
     <p><a href="favorites.php">Go to favorites</a></p>
+
+    <h4>Your closet</h4>
+
 
  <?=$alert?>
 <div class="grid-container"> 
@@ -50,8 +52,17 @@ require 'view/includes/header.php'?>
                 <form action="deleteItem.php?delete=<?=$item['id']?>" method="post">
                     <input type="submit" name="delete_item" value="DELETE">
                 </form>
-                <form action="?favorite=<?=$item['id']?>" method="post">
+                <form action="favorites.php?favorite=<?=$item['id']?>" method="post">
                     <input type="submit" name="add_favorite" value="Add favorite">
+                </form>
+                <form action="inspiration.php?item=<?=$item['id']?>" method="post">
+                    <input type="hidden" name="item_type" value="<?=$item['type'] ?>">
+                    <input type="hidden" name="item_image" value="<?=$item['image'] ?>">
+                    <input type="hidden" name="item_weather" value="<?=$item['weather'] ?>">
+                    <input type="hidden" name="item_ocassion" value="<?=$item['ocassion'] ?>">
+                    <input type="hidden" name="item_colour" value="<?=$item['colour'] ?>">
+                    <input type="hidden" name="item_time" value="<?=$item['time'] ?>">
+                    <input type="submit" name="get_inspiration" value="Get inspiration">
                 </form>
             </div>
         </div>

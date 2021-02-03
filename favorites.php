@@ -7,9 +7,11 @@ require 'view/includes/header.php'?>
 
 <section>
 
+<h2> Your favorite items</h2>
+
  <?=$alert?>
 <div class="grid-container"> 
-        <?php foreach ($favorites as $item) : ?>
+        <?php foreach ($inspiration as $item) : ?>
         <div class="grid-item"> 
             <button class="accordion">
                 <img src=images/<?= $item['image'] ?>>
