@@ -8,7 +8,7 @@ require 'view/includes/header.php'?>
 <div class="topnav">
   <h3>Your Closet</h3> 
   <ul>
-    <li><a href="upload.php"><i class="fas fa-file-upload"></i></a></li>
+    <li><a href="addClothes.php"><i class="fas fa-file-upload"></i></a></li>
     <li><a href="outfit.php"><i class="fas fa-calendar-day"></i></a></li>
     <li><a href="favorites.php"><i class="fas fa-heart"></i></a></li>
   </ul>
