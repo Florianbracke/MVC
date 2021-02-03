@@ -7,21 +7,32 @@ require 'view/includes/header.php'?>
 
 <section>
 
-<h2> Your favorite items</h2>
+
+<div class="topnav">
+  <h3>Favorite items</h3> 
+  <ul>
+    <li><a href="upload.php"><i class="fas fa-file-upload"></i></a></li>
+    <li><a href="outfit.php"><i class="fas fa-calendar-day"></i></a></li>
+    <li><a href="favorites.php"><i class="fas fa-heart"></i></a></li>
+  </ul>
+</div>
 
  <?=$alert?>
-<div class="grid-container"> 
+<div class="masonry"> 
         <?php foreach ($favorites as $item) : ?>
-        <div class="grid-item"> 
+        <div class="masonry-item"> 
             <button class="accordion">
                 <img src=images/<?= $item['image'] ?>>
             </button>
         <div class="panel">
-            <p> Type of Item: <?= ucfirst($item['type']) ?> </p>
-            <p> Weather Type: <?= ucfirst($item['weather']) ?> </p>
-            <p> Occasion: <?= ucfirst($item['ocassion']) ?> </p>
-            <p> Colour: <?= ucfirst($item['colour']) ?> </p>
-            <p> Time of Day: <?= ucfirst($item['time']) ?> </p>
+        <ul>
+                <li> <?= ucfirst($item['type']) ?> | </li>
+                <li> <?= ucfirst($item['weather']) ?> weather | </li>
+                <li> <?= ucfirst($item['ocassion']) ?> |</li>
+                <li> <?= ucfirst($item['colour']) ?>| </li>
+                <li> <?= ucfirst($item['time']) ?> | </li>
+                <li> <?=$item['favorite'] ?> </li>
+            </ul>
                 <form method="post">
                     <input type="hidden" name="item_type" value="<?= $item['type'] ?>">
                     <input type="hidden" name="item_id" value="<?=$item['id'] ?>">
@@ -30,10 +41,10 @@ require 'view/includes/header.php'?>
                     <input type="hidden" name="item_ocassion" value="<?=$item['ocassion'] ?>">
                     <input type="hidden" name="item_colour" value="<?=$item['colour'] ?>">
                     <input type="hidden" name="item_time" value="<?=$item['time'] ?>">
-                    <input type="submit" name="add_to_outfit" value="WEAR">
+                    <input type="submit" name="add_to_outfit" value="WEAR"  class="button-closet">
                 </form>
                 <form action="?favorite=<?=$item['id']?>" method="post">
-                <input type="submit" name="remove_favorite" value="Remove Favorite">
+                <input type="submit" name="remove_favorite" value="&#xf7a9;"  class="button-closet">
                 </form>
         </div>
         </div>
@@ -46,5 +57,5 @@ require 'view/includes/header.php'?>
 
 </section>
 <script src="script.js"></script>
-<?php require 'view/includes/footer.php'?>
+<?php require 'view/includes/undernav.php'?>
 
