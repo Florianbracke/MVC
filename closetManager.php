@@ -85,7 +85,7 @@ if (!empty($_POST['edit_confirm'])) {
     $statement->execute([$new_type, $new_weather, $new_ocassion, $new_time, $new_colour, $id]);
 
     $items = $database->query("SELECT * FROM closet WHERE id=$id");
-    $alert = 'Your edits have been saved!';
+    $alert = '<p class="alert"> Your edits have been saved! </p>';
 }
 
 
@@ -105,7 +105,8 @@ if (!empty($_POST['delete_confirm'])) {
 
     $items = $database->query("SELECT * FROM closet WHERE id=$id");
     header('location: closet.php');
-    $alert = 'Item has been deleted';
+    $alert = '<p class="alert-delete"> Item has been deleted </p>';
+
 
 }
 
@@ -183,6 +184,7 @@ if (!empty($_POST['add_favorite'])) {
     $statement->execute([$id]);
 
     header('location: favorites.php');
+    $alert = '<p class="alert"> Favorite has been added! </p>';
     
 }
 
@@ -195,6 +197,7 @@ if (!empty($_POST['remove_favorite'])) {
     $statement->execute([$id]);
 
     $favorites = $database->query("SELECT * FROM closet WHERE favorite = '<i class=\"fas fa-heart\"></i>'");
+    $alert = ' <p class="alert-delete"> Favorite has been removed!  </p>';
 
 }
 
