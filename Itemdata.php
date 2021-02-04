@@ -64,7 +64,7 @@
                        <option value="night">Night</option>
                    </select>   
                    <br>  <br> 
-                   <input type="submit" name="itemData" value="Edit" class="button-closet editPageButton">
+                    <input type="submit" name="itemData" value="Edit" class="button-closet editPageButton"> 
                </form>
        </div>
 </div>

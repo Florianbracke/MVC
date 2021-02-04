@@ -18,24 +18,27 @@ error_reporting(E_ALL);
     echo "Connection failed: " . $e->getMessage();
     }
 
-    $items =  $database->query("SELECT * FROM closet");
+    $items = $database->query("SELECT * FROM closet");
      
     if(isset($_POST['submit'])){
-    
+     
       // Count total files
       $countfiles = count($_FILES['files']['name']);
      
       // Prepared statement
-      $query = "INSERT INTO closet (image) VALUES(? )";
-    
+      $query = "INSERT INTO closet (image) VALUES (?)";
+
+      // query for image
+      //$query = "INSERT INTO images (image,name) VALUES (?,?)";
+
       $statement = $database->prepare($query);
-      
+
       // Loop all files
       for($i=0;$i<$countfiles;$i++){
 
         // File name
         $filename = $_FILES['files']['name'][$i];
-
+        echo $filename;
         // Location
         $target_file = 'images/'.$filename;
 
@@ -58,31 +61,32 @@ error_reporting(E_ALL);
           
           }
       }
-      echo $countfiles; 
+     
       if (!empty($filename)) {
         echo "<br> <br> <div class='uploadsucces' style='text-align:center; color:green;'> File upload successfully </div><br> <br>";
         echo "<div style='display:flex; flex-direction: column;'> 
         <img src='$target_file' style='max-height: 300px; max-width: 200px' alt='upload_image'>  </div> <br> <br>";
-    }
+
+      }
 
   }
     
-   require 'addClothesManager.php';
+  
 
 ?>
-<?php require 'view/includes/header.php'?>
-
+<?php require '../view/includes/header.php'?>
+<?php require '../Itemdata.php';?>
 
 <div class="form">
   <form method='post' action='' enctype='multipart/form-data'>
     <input type='file' name='files[]' multiple /> <br>
     <input type='submit' value='Submit' name='submit' />
   </form>
-<?php require 'Itemdata.php';?>
+
 
 <?php 
-  $insert= $database->query("INSERT INTO closet (image) SELECT name FROM images WHERE name = '$filename';"); 
-  Echo "$target_file";
+ // $insert= $database->query("INSERT INTO closet (image) SELECT name FROM images WHERE name = '$filename';"); 
+ 
 ?>
 </div>
 
