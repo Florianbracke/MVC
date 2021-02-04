@@ -2,7 +2,7 @@
 
 <?php //require 'includes/navbar.php'?>
 
-<?php
+<?php 
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -18,7 +18,7 @@ error_reporting(E_ALL);
     echo "Connection failed: " . $e->getMessage();
     }
 
-    $items = $database->query("SELECT * FROM closet");
+    $uploadConfirm = '';
      
     if(isset($_POST['submit'])){
      
@@ -29,7 +29,6 @@ error_reporting(E_ALL);
       $query = "INSERT INTO closet (image) VALUES (?)";
 
       // query for image
-      //$query = "INSERT INTO images (image,name) VALUES (?,?)";
 
       $statement = $database->prepare($query);
 
@@ -38,7 +37,7 @@ error_reporting(E_ALL);
 
         // File name
         $filename = $_FILES['files']['name'][$i];
-        echo $filename;
+
         // Location
         $target_file = 'images/'.$filename;
 
@@ -57,32 +56,32 @@ error_reporting(E_ALL);
             // Execute query
             $statement->execute(array($filename));
             
-            }
-          
+            } 
           }
       }
      
       if (!empty($filename)) {
-        echo "<br> <br> <div class='uploadsucces' style='text-align:center; color:green;'> File upload successfully </div><br> <br>";
-        echo "<div style='display:flex; flex-direction: column;'> 
+        $uploadConfirm = "<br> <br> <div class='uploadsucces' style='text-align:center; color:green;'> File upload successfully </div><br> <br> <div style='display:flex; flex-direction: column;'> 
         <img src='$target_file' style='max-height: 300px; max-width: 200px' alt='upload_image'>  </div> <br> <br>";
 
       }
 
-  }
+      $new_type = $_POST['item_type'];        
+      $new_weather = $_POST['item_weather'];
+      $new_ocassion = $_POST['item_ocassion'];
+      $new_time = $_POST['item_time'];
+      $new_colour = $_POST['item_colour'];
+  
+      $statement = $database->query("UPDATE closet SET `type` = '$new_type', weather = '$new_weather', ocassion = '$new_ocassion', time = '$new_time', colour = '$new_colour'  WHERE image = '$filename'");
+
+    }
     
   
 
 ?>
-<?php require '../view/includes/header.php'?>
+<?php require 'includes/header.php'?>
 <?php require '../Itemdata.php';?>
-
-<div class="form">
-  <form method='post' action='' enctype='multipart/form-data'>
-    <input type='file' name='files[]' multiple /> <br>
-    <input type='submit' value='Submit' name='submit' />
-  </form>
-
+<?php require 'includes/undernav.php'?>
 
 <?php 
  // $insert= $database->query("INSERT INTO closet (image) SELECT name FROM images WHERE name = '$filename';"); 
@@ -92,4 +91,3 @@ error_reporting(E_ALL);
 
 </body>
 </html>
-<?php require 'includes/footer.php'?>

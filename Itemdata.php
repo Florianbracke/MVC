@@ -1,10 +1,25 @@
+
+<div class="topnav">
+  <h3>Upload Item</h3> 
+  <ul>
+    <li><a href="addClothes.php"><i class="fas fa-file-upload"></i></a></li>
+    <li><a href="outfit.php"><i class="fas fa-calendar-day"></i></a></li>
+    <li><a href="favorites.php"><i class="fas fa-heart"></i></a></li>
+  </ul>
+</div>
+
 <div class="container"> 
+
+<?php echo $uploadConfirm?>
                
                <div class="edit-text"> 
-               <form method="post">
+               <div class="form">
+                <form method='post' action='' enctype='multipart/form-data'>
+                    <input type='file' name='files[]' multiple /> <br>
+                    <br>
+                    <br>
                    <label for="item_type"> Type of item: </label>
                    <select name="item_type" class="custom-select">
-                  
                        <option value="outer wear">Outer Wear</option>
                        <option value="pants">Pants</option>
                        <option value="skirts">Skirts</option>
@@ -64,7 +79,7 @@
                        <option value="night">Night</option>
                    </select>   
                    <br>  <br> 
-                    <input type="submit" name="itemData" value="Edit" class="button-closet editPageButton"> 
+                   <input type='submit' value='Submit' name='submit' />
                </form>
        </div>
 </div>
