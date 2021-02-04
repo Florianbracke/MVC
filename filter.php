@@ -78,101 +78,12 @@
             </select>
             <button id="Filter">Search</button>
         </div>
-    </form>
+        </div>
+    </form>     
     
-    <?php
-    if (! empty($_POST['type']) ) {
-        ?>
-        
-    <?php
-        $query = "SELECT * from closet";
-        $i = 0;
-        $selectedOptionCount = count($_POST['type']+$_POST['weather']+$_POST['colour']+$_POST['ocassion']+$_POST['time']);
-        $selectedTypeOption = "";
-        $selectedWeatherOption = "";
-        $selectedColourOption = "";
-        $selectedOcassionOption = "";
-        $selectedTimeOption = "";
-        $selectedAllTypeOption="";
-        $selectedAllWeatherption="";
-        $selectedAllColourOption="";
-        $selectedAllOcassionOption="";
-        $selectedAllTimeOption="";
-
-
-        while ($i < $selectedOptionCount) {
-
-            if($_POST['type'][$i] === "all"){
-                $selectedAllTypeOption = "not null";
-            } else {
-                $selectedTypeOption = $selectedTypeOption . "'" . $_POST['type'][$i] . "'";
-            }
-            if($_POST['weather'][$i] === "all"){
-                $selectedAllWeatherOption = "not null";
-            } else {
-                $selectedWeatherOption = $selectedWeatherOption . "'" . $_POST['weather'][$i] . "'";
-            }
-            if($_POST['colour'][$i] === "all"){
-                $selectedAllColourOption = "not null";
-            } else {
-                $selectedColourOption = $selectedColourOption . "'" . $_POST['colour'][$i] . "'";
-            }
-            if($_POST['ocassion'][$i] === "all"){
-                $selectedAllOcassionOption = "not null";
-            } else {
-                $selectedOcassionOption = $selectedOcassionOption . "'" . $_POST['ocassion'][$i] . "'";
-            }
-            if($_POST['time'][$i] === "all"){
-                $selectedAllTimeOption = "not null";
-            } else {
-                $selectedTimeOption = $selectedTimeOption . "'" . $_POST['time'][$i] . "'";
-            }
-
-            if ($i < $selectedOptionCount - 1) {
-                $selectedTypeOption = $selectedTypeOption . ", ";
-                $selectedWeatherOption = $selectedWeatherOption . ", ";
-                $selectedColourOption = $selectedColourOption . ", ";
-                $selectedOcassionOption = $selectedOcassionOption . ", ";
-                $selectedTimeOption = $selectedTimeOption . ", ";
-
-            }
-            
-            $i ++;
-        }
-      
-        
-        if (empty($selectedAllTypeOption)){
-            $query = $query . " WHERE type in (" . $selectedTypeOption . ")";
-        } else {
-            $query = $query . " WHERE type is not null";
-        }
-        if (empty($selectedAllWeatherOption)){
-            $query = $query . " AND weather in (" . $selectedWeatherOption . ")";
-        } else {
-            $query = $query . " AND weather is not null";
-        }
-        if (empty($selectedAllColourOption)){
-            $query = $query . " AND colour in (" . $selectedColourOption . ")";
-        } else {
-            $query = $query . " AND colour is not null";
-        }
-        if (empty($selectedAllOcassionOption)){
-            $query = $query . " AND ocassion in (" . $selectedOcassionOption . ")";
-        } else {
-            $query = $query . " AND ocassion is not null";
-        }
-        if (empty($selectedAllTimeOption)){
-            $query = $query . " AND time in (" . $selectedTimeOption . ")";
-        } else {
-            $query = $query . " AND time is not null";
-        }
-            
-        $result = $database->query($query);
-    }?>
-
     <div class="masonry">
         <?php if (! empty($result)) {
-            foreach ($result as $item ) {?>
+            foreach ($result as $item ) :?>
             <div class="masonry-item">
                 <button class="accordion">
                     <img src="images/<?= $item['image']?>"> 
@@ -237,19 +148,13 @@
                     </div>
                 </div>
             </div>
-                
-    <?php }?>
-    </div>
-    
+            <?php endforeach; ?>
         
-  
-<?php
-    }
-    ?>  
-        </div>
-   
-
+         <?php } ?>   
+        
+    </div>       
     </div>
+
     
     </section>
     <?php require 'view/includes/undernav.php'?>
