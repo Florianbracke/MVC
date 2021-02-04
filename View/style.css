@@ -207,6 +207,17 @@ form {
   line-height: inherit;
 }
 
+.search-box {
+  column-count: 2;
+  column-gap: 1em;
+  padding-bottom: 50px;
+}
+
+select.form-select {
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
+}
 
 
 @media only screen and (min-width: 1024px) {

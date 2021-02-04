@@ -1,5 +1,6 @@
 
 
+<?php //require 'includes/navbar.php'?>
 
 <?php
 
@@ -87,4 +88,4 @@ error_reporting(E_ALL);
 
 </body>
 </html>
-<?php require 'view/includes/footer.php'?>
+<?php require 'includes/footer.php'?>

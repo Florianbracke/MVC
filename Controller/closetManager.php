@@ -214,6 +214,3 @@ if (!empty($_POST['delete_item_outfit'])) {
     $alert = ' <p class="alert-delete"> The item is deleted from your outfit of today! </p>';
 }
 
-
-
-}

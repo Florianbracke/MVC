@@ -1,6 +1,6 @@
 <?php 
-require 'closetManager.php';
-require 'view/includes/header.php'?>
+require '../controller/closetManager.php';
+require 'includes/header.php'?>
 
 
 <section>
@@ -38,5 +38,5 @@ require 'view/includes/header.php'?>
 
 </section>
 <script src="script.js"></script>
-<?php require 'view/includes/undernav.php'?>
+<?php require 'includes/undernav.php'?>
 
