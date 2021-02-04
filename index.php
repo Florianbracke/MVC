@@ -39,7 +39,7 @@
       <li><a href="./View/aboutUs.php">About Us</a></li>
       <li><a href="./View/closet.php">Digital closet</a></li>
       <li><a href="musicPlayer/music.php" target="_blank" rel="noopener noreferrer">Music Player</a></li>
-      <li><a href="./View/register.php">Register</a></li>
+      <li><a href="./View/login.php">Login/Register</a></li>
       <li><a href="./View/contact.php">Contact</a></li>
     </ul>
   </div>
