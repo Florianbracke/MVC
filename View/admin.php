@@ -1,6 +1,6 @@
-<?php include("includes/header.php"); ?>
+<?php include("includes/headerIndex.php"); ?>
 
-<?php include("includes/nav.php"); ?>
+<?php include("includes/navIndex.php"); ?>
 
 <div class="jumbotron">
   <h1 class="text-center"><?php if (logged_in()) {

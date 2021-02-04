@@ -270,7 +270,7 @@ function validate_user_login()
             }
         } else {
             if (login_user($email, $password)) {
-                redirect("admin.php"); //can change to different pages if login successful
+                redirect("closet.php"); //can change to different pages if login successful
             } else {
                 echo validation_errors("Check your username or password!");
             }

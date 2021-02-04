@@ -36,11 +36,11 @@
   <div class="menu">
     <ul>
       <li><a href="index.php">Home</a></li>
-      <li><a href="aboutUs.php">About Us</a></li>
+      <li><a href="./View/aboutUs.php">About Us</a></li>
       <li><a href="./View/closet.php">Digital closet</a></li>
       <li><a href="musicPlayer/music.php" target="_blank" rel="noopener noreferrer">Music Player</a></li>
-      <li><a href="register.php">Register</a></li>
-      <li><a href="contact.php">Contact</a></li>
+      <li><a href="./View/register.php">Register</a></li>
+      <li><a href="./View/contact.php">Contact</a></li>
     </ul>
   </div>
   <script src="scriptLandingPage.js"></script>

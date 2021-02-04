@@ -109,7 +109,7 @@ header .logo
 }
 .text p
 {
-  font-size: 1.3em;
+  font-size: 1em;
   color: #fff;
   margin: 20px 0;
   font-weight: 400;
@@ -195,6 +195,9 @@ header .logo
   {
     padding: 40px;
   }
+  header{
+    font-size: 2em;
+  }
   .text h2
   {
     font-size: 2em;
@@ -202,5 +205,31 @@ header .logo
   .text h3
   {
     font-size: 1em;
+  }
+  p{
+    font-size:.5em;
+  }
+}
+
+@media (max-width: 600px)
+{
+  .showcase,
+  .showcase header
+  {
+    padding: 20px;
+  }
+  header{
+    font-size: 1em;
+  }
+  .text h2
+  {
+    font-size: 1em;
+  }
+  .text h3
+  {
+    font-size: 1em;
+  }
+  p{
+    font-size:.5em;
   }
 }

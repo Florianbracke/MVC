@@ -1,6 +1,6 @@
-<?php include("includes/header.php"); ?>
+<?php include("includes/headerIndex.php"); ?>
 
-<?php include("includes/nav.php"); ?>
+<?php include("includes/navIndex.php"); ?>
 
 <div class="row">
 	<div class="col-lg-6 col-lg-offset-3">
@@ -8,7 +8,7 @@
 	</div>
 	<div class="p-5 text-center bg-image" style="
       background-image: url('includes/backgroundImage2.jpg');
-      height: 100%;
+      height: 100vh;
 		width: 100%;
 		background-position: center;
   background-repeat: no-repeat;
@@ -77,4 +77,3 @@
 		</div>
 	</div>
 </div>
-<?php include("includes/footer.php"); ?>
