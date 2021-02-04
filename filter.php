@@ -3,6 +3,9 @@
     require 'filterManager.php';
     require 'view/includes/header.php'?>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
     <section>
 
     <div class="topnav">
@@ -19,33 +22,33 @@
     <form method="POST" name="search" >
         <div id="demo-grid">
         <div class="search-box">
-            <select id="type" name="type[]" multiple="multiple">
+            <select class="form-select form-select-sm" multiple id="type" name="type[]" >
                 <option value="0" selected="selected">Select type of clothing</option>
                  <?php
                 if (! empty($typeResult)) {
-                    echo '<option value="all">All</option>';
+                    echo '<option value="everything">See everything</option>';
                     foreach ($typeResult as $key ) {
                         echo '<option value="' . $key['type'] . '">' . $key['type'] . '</option>';
                     }
                 }
                 ?>
             </select>
-            <select id="weather" name="weather[]" multiple="multiple">
+            <select class="form-select form-select-sm" multiple id="weather" name="weather[]" >
                 <option value="0" selected="selected">Select which weather</option>
                  <?php
                 if (! empty($weatherResult)) {
-                    echo '<option value="all">All</option>';
+                    echo '<option value="everything">See everything</option>';
                     foreach ($weatherResult as $key ) {
                         echo '<option value="' . $key['weather'] . '">' . $key['weather'] . '</option>';
                     }
                 }
                 ?>
             </select>
-            <select id="colour" name="colour[]" multiple="multiple">
+            <select class="form-select form-select-sm" multiple id="colour" name="colour[]">
                 <option value="0" selected="selected">Select colour</option>
                  <?php
                 if (! empty($colourResult)) {
-                    echo '<option value="all">All</option>';
+                    echo '<option value="everything">See everything</option>';
                     foreach ($colourResult as $key ) {
                         echo '<option value="' . $key['colour'] . '">' . $key['colour'] . '</option>';
                         
@@ -53,11 +56,11 @@
                 }
                 ?>
             </select>
-            <select id="ocassion" name="ocassion[]" multiple="multiple">
+            <select class="form-select form-select-sm" multiple id="ocassion" name="ocassion[]" >
                 <option value="0" selected="selected">Select type of ocassion</option>
                  <?php
                 if (! empty($ocassionResult)) {                        
-                    echo '<option value="all">All</option>';
+                    echo '<option value="everything">See everything</option>';
                     foreach ($ocassionResult as $key ) {
                         echo '<option value="' . $key['ocassion'] . '">' . $key['ocassion'] . '</option>';
                         
@@ -65,18 +68,18 @@
                 }
                 ?>
             </select>
-            <select id="time" name="time[]" multiple="multiple">
+            <select class="form-select form-select-sm" multiple id="time" name="time[]" >
                 <option value="0" selected="selected">Select time</option>
                  <?php
                 if (! empty($timeResult)) {
-                    echo '<option value="all">All</option>';
+                    echo '<option value="everything">See everything</option>';
                     foreach ($timeResult as $key ) {
                         echo '<option value="' . $key['time'] . '">' . $key['time'] . '</option>';
                     }
                 }
                 ?>
             </select>
-            <button id="Filter">Search</button>
+            <button class="btn btn-secondary" id="Filter">Search</button>
         </div>
         </div>
     </form>     

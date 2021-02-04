@@ -44,27 +44,27 @@ if (! empty($_POST['type']) ) {
 
     while ($i < $selectedOptionCount) {
 
-        if($_POST['type'][$i] === "all"){
+        if($_POST['type'][$i] === "everything"){
             $selectedAllTypeOption = "not null";
         } else {
             $selectedTypeOption = $selectedTypeOption . "'" . $_POST['type'][$i] . "'";
         }
-        if($_POST['weather'][$i] === "all"){
+        if($_POST['weather'][$i] === "everything"){
             $selectedAllWeatherOption = "not null";
         } else {
             $selectedWeatherOption = $selectedWeatherOption . "'" . $_POST['weather'][$i] . "'";
         }
-        if($_POST['colour'][$i] === "all"){
+        if($_POST['colour'][$i] === "everything"){
             $selectedAllColourOption = "not null";
         } else {
             $selectedColourOption = $selectedColourOption . "'" . $_POST['colour'][$i] . "'";
         }
-        if($_POST['ocassion'][$i] === "all"){
+        if($_POST['ocassion'][$i] === "everything"){
             $selectedAllOcassionOption = "not null";
         } else {
             $selectedOcassionOption = $selectedOcassionOption . "'" . $_POST['ocassion'][$i] . "'";
         }
-        if($_POST['time'][$i] === "all"){
+        if($_POST['time'][$i] === "everything"){
             $selectedAllTimeOption = "not null";
         } else {
             $selectedTimeOption = $selectedTimeOption . "'" . $_POST['time'][$i] . "'";
