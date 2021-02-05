@@ -2,6 +2,7 @@
 <div class="topnav">
   <h3>Upload Item</h3> 
   <ul>
+  <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i></a></li>
     <li><a href="addClothes.php"><i class="fas fa-file-upload"></i></a></li>
     <li><a href="outfit.php"><i class="fas fa-calendar-day"></i></a></li>
     <li><a href="favorites.php"><i class="fas fa-heart"></i></a></li>
@@ -11,9 +12,20 @@
 <div class="container"> 
 
 <?php echo $uploadConfirm?>
+
+<div class="col-lg-6 col-lg-offset-3">
+
+<div class="p-5 text-center bg-image" style="
+      background-image: url('images/photo-1574258495973-f010dfbb5371.jpg');
+      height: 100vh;
+		width: 100%;
+		background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    ">
                
                <div class="edit-text"> 
-               <div class="form">
+               <div class="form" style="width: 80%; opacity:0.8; color:black; margin:0 auto;">
                 <form method='post' action='' enctype='multipart/form-data'>
                     <input type='file' name='files[]' multiple /> <br>
                     <br>
@@ -82,4 +94,6 @@
                    <input type='submit' value='Submit' name='submit' />
                </form>
        </div>
+</div>
+</div>
 </div>

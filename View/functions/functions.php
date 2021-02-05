@@ -158,13 +158,13 @@ function validate_user_registration()
 
                 set_message("<p class='bg-success text-center'>Please check your email/spam folder for an activation link for your account.");
 
-                redirect("index.php");
+                redirect("../index.php");
 
                 //echo "New User Registered";
             } else {
                 set_message("<p class='bg-danger text-center'>Sorry your account could not be registered!!.");
 
-                redirect("index.php");
+                redirect("../index.php");
             }
         }
     }
@@ -270,7 +270,7 @@ function validate_user_login()
             }
         } else {
             if (login_user($email, $password)) {
-                redirect("closet.php"); //can change to different pages if login successful
+                redirect("addClothes.php"); //can change to different pages if login successful
             } else {
                 echo validation_errors("Check your username or password!");
             }
