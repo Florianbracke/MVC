@@ -1,6 +1,6 @@
 
 
-<?php //require 'includes/navbar.php'?>
+<?php require 'addClothesStyling.php'?>
 
 <?php 
 
@@ -88,5 +88,5 @@ error_reporting(E_ALL);
 ?>
 </div>
 
-</body>
-</html>
+
+
