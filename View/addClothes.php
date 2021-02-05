@@ -71,7 +71,6 @@ error_reporting(E_ALL);
       $new_ocassion = $_POST['item_ocassion'];
       $new_time = $_POST['item_time'];
       $new_colour = $_POST['item_colour'];
-  
       $statement = $database->query("UPDATE closet SET `type` = '$new_type', weather = '$new_weather', ocassion = '$new_ocassion', time = '$new_time', colour = '$new_colour'  WHERE image = '$filename'");
 
     }
