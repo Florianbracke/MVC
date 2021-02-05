@@ -42,3 +42,20 @@ It can be a platform to meet a new sporting buddy, find the ideal boardgame or t
 - The project applies the best practises for git and PHP. "Where are those again?", you may ask - does this mean you don't have them bookmarked? 😉 (hint: links can be found in the #announcements channel)
 - Feel free to explore new techniques in any of the languages we know! Structure wise, I recommend sticking with anything linked discussed before and in these instructions.
 
+## Features we want to add
+- Use the code as template for different themes: fridge, pantry,...     
+- Give recommandation about weather
+- Count how many times apiece has been worn
+
+## bugs we have to fix
+- Add mvc structure
+- Fix responsiveness "about us" page 
+- Link the databases to each other
+- Make login page remember password
+
+## things we did great
+- Effordless teamcoordination, it felt very "natural"
+- Quick coding
+- 
+
+## Thing

@@ -1,6 +1,6 @@
 
 
-<?php //require 'includes/navbar.php'?>
+<?php require 'addClothesStyling.php'?>
 
 <?php 
 
